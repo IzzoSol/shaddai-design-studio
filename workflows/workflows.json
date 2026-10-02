@@ -1,0 +1,74 @@
+{
+  "version": "0.1.0",
+  "note": "Scenario playbooks. Each one is a chain of agent + tool steps with a quality gate. Same JSON can be exposed as an MCP tool, rendered as a guide, or packaged as a sellable pack.",
+  "workflows": [
+    {
+      "id": "ugc-product-ad",
+      "title": "UGC-style product ad (30-60s vertical)",
+      "inputs": ["product name + one-line promise", "3 real benefits or proof points", "target viewer", "platform (TikTok/Reels/Shorts)"],
+      "steps": [
+        { "agent": "ORACLE", "do": "Pull 5 viewer pain points and 3 competing hooks from the Brain / web search. Output: ranked hook list.", "tool": "rag_search, web_search" },
+        { "agent": "QUILL", "do": "Write 3 scripts (hook in first 2s, one benefit per beat, one CTA). Output: scripts with shot list.", "tool": "ai writer" },
+        { "agent": "TURTLE", "do": "Generate b-roll / product stills and the on-screen text cards matching the shot list.", "tool": "image gen, video studio" },
+        { "agent": "TURTLE", "do": "Voice-over (TTS) and a 20s music bed; match the cut points.", "tool": "voice/TTS, music bot, FL Studio MCP" },
+        { "agent": "NEXUS", "do": "Assemble: cut to beats, burn captions, export 9:16, 1:1 and 16:9.", "tool": "clipper (ffmpeg)" },
+        { "agent": "PIKADON", "do": "Run the compliance gate below before anything ships.", "tool": "checklist" }
+      ],
+      "qualityGate": [
+        "Hook lands in under 2 seconds with sound off (captions carry it)",
+        "Every claim has a source or is removed",
+        "One call to action, on screen for the last 3 seconds",
+        "Readable on a phone at arm's length"
+      ],
+      "compliance": [
+        "Disclose AI-generated people/voices where the platform requires it",
+        "No invented testimonials, reviews, results, or 'real customer' framing",
+        "No real person's likeness or voice without written permission",
+        "Mark paid/sponsored content per platform rules"
+      ],
+      "outputs": ["3 script variants", "1 master edit + 3 aspect ratios", "caption file", "hook A/B notes"],
+      "mcpTool": "run_workflow('ugc-product-ad', {product, promise, proof[], audience, platform})"
+    },
+    {
+      "id": "game-pitch-and-trailer",
+      "title": "Game design pitch + 45s trailer",
+      "inputs": ["one-sentence game premise", "core loop (what you do every 30 seconds)", "3 screenshots or a playable build", "platform"],
+      "steps": [
+        { "agent": "SHADDAI", "do": "Stress-test the premise: who plays it, why it's different, what the first 5 minutes feel like. Output: one-page design brief.", "tool": "council ask" },
+        { "agent": "NEXUS", "do": "Capture 3-5 clean gameplay clips (60fps, no UI clutter) and a 10s idle loop.", "tool": "screen capture, clipper" },
+        { "agent": "TURTLE", "do": "Key art + logo lockup + 3 feature cards in one consistent palette.", "tool": "image gen" },
+        { "agent": "TURTLE", "do": "Original 45s music cue that rises with the trailer beats; export stems.", "tool": "FL Studio MCP, music bot" },
+        { "agent": "QUILL", "do": "Store page copy: tagline, 3 bullets, long description, patch-note tone for updates.", "tool": "ai writer" },
+        { "agent": "NEXUS", "do": "Cut trailer: hook, loop, feature beats, title card with release window.", "tool": "clipper" }
+      ],
+      "qualityGate": [
+        "A stranger can say what you do in the game after 15 seconds",
+        "Only real footage is labelled gameplay",
+        "Audio ducks under voice/captions, no clipping"
+      ],
+      "compliance": ["Licensed or original music only", "Credit third-party assets", "No fake review quotes or fake player counts"],
+      "outputs": ["design brief", "key art set", "45s trailer + 15s cut", "store page copy", "music stems"],
+      "mcpTool": "run_workflow('game-pitch-and-trailer', {premise, loop, clips[], platform})"
+    },
+    {
+      "id": "long-video-to-shorts",
+      "title": "Long video to captioned vertical shorts",
+      "inputs": ["video file or URL you have rights to", "target count (3-10)", "style (clean, bold, minimal)"],
+      "steps": [
+        { "agent": "NEXUS", "do": "Transcribe locally (Whisper) with word timestamps.", "tool": "clipper: whisper" },
+        { "agent": "ORACLE", "do": "Score segments for hook strength, self-contained story, payoff. Output: ranked timestamps.", "tool": "rag / llm" },
+        { "agent": "NEXUS", "do": "Cut, reframe to 9:16 (face-aware crop), burn captions in the chosen style.", "tool": "clipper: ffmpeg" },
+        { "agent": "QUILL", "do": "Title, hook line and hashtags per short.", "tool": "ai writer" },
+        { "agent": "PIKADON", "do": "Rights + quote-accuracy check, then queue for scheduling.", "tool": "checklist" }
+      ],
+      "qualityGate": [
+        "Each short stands alone with no missing context",
+        "Captions match the audio word for word",
+        "First frame is not black or a title card"
+      ],
+      "compliance": ["Only clip content you own or have permission to use", "Keep speaker quotes accurate and in context"],
+      "outputs": ["N short videos", "caption files", "titles + hashtags", "posting schedule"],
+      "mcpTool": "run_workflow('long-video-to-shorts', {source, count, style})"
+    }
+  ]
+}
