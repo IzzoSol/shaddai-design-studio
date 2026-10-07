@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shaddai's Science Fiction</title>
+<meta name="description" content="SHADDAI — seven grounded AI agents, the AURA context optimizer and a design studio, presented as an issue of a pulp science-fiction magazine.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Courier+Prime:wght@400;700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Oswald:wght@500;600&display=swap">
+<link rel="stylesheet" href="pulp.css">
+</head>
+<body>
+
+<header class="stand">
+  <div class="wrap">
+    <span><b>Shaddai's</b> &nbsp;Vol. 1 · No. 7 · October 2026</span>
+    <nav aria-label="Sections">
+      <a href="#collection">The collection</a>
+      <a href="#laws">The laws</a>
+      <a href="#series">Robot series</a>
+      <a href="#originals">Read Asimov</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="slides.html">Slide deck</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="stage">
+      <article class="cover print" id="hero-cover" style="--m:#d8322b" aria-label="October 2026 cover">
+        <canvas class="art" data-scene="planet" data-seed="1981" data-sky="#120a26,#4a1840,#c8502e,#f2a65a" data-accent="#b0402a" aria-hidden="true"></canvas>
+        <span class="date">OCTOBER 2026</span>
+        <h1 class="mast">Shaddai<span class="apos">'s</span></h1>
+        <div class="sf"><b>S</b>CIENCE <b>F</b>ICTION</div>
+        <ul class="lines">
+          <li><span class="flag">Double issue</span></li>
+          <li class="lead">Seven Agents<em>The council that cites its sources</em></li>
+          <li>NEXUS · QUILL · TURTLE</li>
+          <li>AURA: Token Dreams</li>
+          <li>No API keys required</li>
+        </ul>
+        <div class="price"><span>$2.95 U.S. / $3.75 CAN</span><svg class="barcode" data-code="0726shaddai" aria-hidden="true"></svg></div>
+        <div class="gloss"></div>
+      </article>
+    </div>
+
+    <div>
+      <p class="kicker">From the editor's desk</p>
+      <h2>Agents with <span>receipts</span>, not vibes.</h2>
+      <p class="editor">This month the SHADDAI council takes the cover. Seven agents, each with its own library of source documents, plug into Claude with one line and no API keys. When you ask a question, they bring back the passages and the scores behind every claim. Claude writes the answer. Further in, AURA trims the context your agent sends on every call, and the design studio keeps the whole thing looking like it came off a newsstand.</p>
+      <div class="facts" aria-label="Issue at a glance">
+        <span><b>7</b>agents</span>
+        <span><b>85</b>source docs</span>
+        <span><b>82%</b>schema tokens cut</span>
+        <span><b>0</b>dependencies</span>
+      </div>
+      <div class="btns">
+        <a class="btn" href="#subscribe">Subscribe in one line</a>
+        <a class="btn ghost" href="slides.html">Read the slide deck</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="carpet" id="collection">
+    <div class="wrap">
+      <div class="head">
+        <h2>The collection</h2>
+        <p>Seven issues, one per agent. Pick one up to read its contents page.</p>
+      </div>
+      <div class="haul" id="haul"></div>
+    </div>
+  </section>
+
+  <section id="laws">
+    <div class="wrap">
+      <article class="sheet rise">
+        <span class="tag">SCIENCE FACT AND FICTION</span>
+        <header>
+          <svg viewBox="0 0 120 150" aria-hidden="true">
+            <rect x="18" y="8" width="84" height="104" rx="22" fill="#d9c7ad" stroke="#1d1410" stroke-width="3"/>
+            <path d="M18 40h84M60 8v104" stroke="#1d1410" stroke-width="2" opacity=".35"/>
+            <rect x="30" y="40" width="22" height="12" fill="#1d1410"/>
+            <ellipse cx="80" cy="46" rx="10" ry="6" fill="#fff" stroke="#1d1410" stroke-width="2"/><circle cx="80" cy="46" r="3.5" fill="#1d1410"/>
+            <path d="M40 78h40v22H68V88H52v12H40z" fill="#1d1410"/>
+            <rect x="36" y="112" width="48" height="14" fill="#bba88c" stroke="#1d1410" stroke-width="3"/>
+            <path d="M6 148c10-16 30-22 54-22s44 6 54 22" fill="none" stroke="#1d1410" stroke-width="3"/>
+          </svg>
+          <h2>Shaddai's Laws of Robotics</h2>
+        </header>
+        <p class="intro">In 2026, the SHADDAI council adopted laws to govern helpful agents. Unlike the famous ones, these are checked by a test suite.</p>
+        <ol class="laws">
+          <li><div>An agent may not state a fact without a source or, through inaction, allow a citation to go missing.<small>rag_ask returns the source document and score for every passage</small></div></li>
+          <li><div>An agent must obey the orders given it by human beings, except where those orders require an API key.<small>Key-free edition: no keys, no external LLM, no localhost server</small></div></li>
+          <li><div>AURA must trim what you send, as long as the trimming does not drop something the model needed.<small>Fails open by design: protected rules are never removed</small></div></li>
+          <li><div>A cache must protect its own existence, except where that would mean writing your secrets to disk.<small>API keys, JWTs and PEM blocks stay memory-only</small></div></li>
+          <li><div>Robots must ship with zero dependencies, so <code>npx</code> finishes before your coffee cools.<small>shaddai-mcp 2.3.0 and shaddai-aura 0.7.2: 0 dependencies each</small></div></li>
+          <li><div>A robot may not call itself finished until every one of its tests has passed.<small>AURA: 199 of 199 tests and 27 of 27 protocol checks green</small></div></li>
+          <li><div>Agents must be smart enough to route your goal, but humble enough to let Claude write the final word.<small>run_agent returns a persona and passages; Claude completes the task</small></div></li>
+        </ol>
+      </article>
+    </div>
+  </section>
+
+  <section id="series">
+    <div class="wrap">
+      <div class="head">
+        <h2>The robot series</h2>
+        <p>Eight paperbacks, one shelf. Each title is a real part of the SHADDAI stack.</p>
+      </div>
+      <div class="shelf" id="shelf"></div>
+    </div>
+  </section>
+
+  <section class="originals" id="originals">
+    <div class="wrap">
+      <div class="head">
+        <h2>Read the originals</h2>
+        <p>Every joke on this page borrows from Isaac Asimov. Spin the shelf, then buy the real thing.</p>
+      </div>
+      <div class="swivel" id="swivel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Isaac Asimov books. Use the arrow keys to turn.">
+        <div class="ring" id="ring"></div>
+        <div class="swivel-shelf" aria-hidden="true"></div>
+      </div>
+      <div class="plate">
+        <button type="button" class="spin" id="spin-prev" aria-label="Previous book">‹</button>
+        <div class="info" aria-live="polite">
+          <h3 id="ob-title">I, Robot</h3>
+          <p class="meta" id="ob-meta">1950 · Robot series</p>
+          <div class="buy" id="ob-buy"></div>
+        </div>
+        <button type="button" class="spin" id="spin-next" aria-label="Next book">›</button>
+      </div>
+      <p class="credit">Cover images load live from <a href="https://openlibrary.org/developers/covers">Open Library</a> and remain the property of their publishers and artists. Where a cover can't load, a painted stand-in appears. Bookshop.org shares its profits with independent bookstores. Still publishing: <a href="https://www.asimovs.com/">Asimov's Science Fiction</a>, the magazine this page is dressed as.</p>
+    </div>
+  </section>
+
+  <section id="subscribe">
+    <div class="wrap">
+      <form class="card rise" id="sub-card" onsubmit="return false">
+        <h2>Subscription card</h2>
+        <p class="sub">Clip and paste. Node 18 or newer. No keys, no account, no postage.</p>
+        <div class="rows">
+          <div class="row"><label for="c1">SHADDAI council · Claude Code</label><code id="c1">claude mcp add shaddai -- npx -y shaddai-mcp</code><button type="button" class="btn ghost" data-copy="c1">Copy</button></div>
+          <div class="row"><label for="c2">AURA optimizer · Claude Code</label><code id="c2">claude mcp add aura -- npx -y -p shaddai-aura aura-mcp</code><button type="button" class="btn ghost" data-copy="c2">Copy</button></div>
+          <div class="row"><label for="c3">Claude Desktop · config</label><code id="c3">{"mcpServers":{"shaddai":{"command":"npx","args":["-y","shaddai-mcp"]}}}</code><button type="button" class="btn ghost" data-copy="c3">Copy</button></div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="next">
+    <div class="wrap next">
+      <div class="stage" style="max-width:360px;width:100%;justify-self:center">
+        <article class="cover" style="--m:#2b6fd8" aria-label="Next issue cover">
+          <canvas class="art" data-scene="city" data-seed="2027" data-sky="#1a0612,#7a1e1e,#e2582a,#f7c35a" aria-hidden="true"></canvas>
+          <span class="date">NOVEMBER 2026</span>
+          <div class="mast">Shaddai<span class="apos">'s</span></div>
+          <div class="sf"><b>S</b>CIENCE <b>F</b>ICTION</div>
+          <ul class="lines"><li><span class="flag">Next issue</span></li><li class="lead">Run Workflow<em>Playbooks as MCP tools</em></li></ul>
+          <div class="price"><span>$2.95 U.S. / $3.75 CAN</span><svg class="barcode" data-code="1126next" aria-hidden="true"></svg></div>
+          <div class="gloss"></div>
+        </article>
+      </div>
+      <div>
+        <div class="head"><h2>Coming next issue</h2></div>
+        <ol>
+          <li><b>run_workflow</b> joins the SHADDAI MCP: UGC ads, game pitch and trailer, and long video to shorts, each with a quality gate and compliance checklist.</li>
+          <li><b>Scenario packs</b>: launch kit, creator media kit, game update post.</li>
+          <li><b>AURA 0.7.2 on npm</b>, so <code>npx</code> users get the audited build.</li>
+          <li><b>One ledger</b>: dashboard and MCP savings reconciled on a single page.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>SHADDAI'S SCIENCE FICTION · Printed on recycled tokens.</span>
+    <span><a href="https://github.com/IzzoSol/shaddai-mcp">shaddai-mcp</a> · <a href="https://github.com/IzzoSol/Aura">aura</a> · <a href="https://x.com/shaddaiAI">@shaddaiAI</a></span>
+  </div>
+</footer>
+
+<dialog class="contents" id="contents" aria-labelledby="ct-title">
+  <button class="close" type="button" aria-label="Close">×</button>
+  <div class="inner" id="contents-inner"></div>
+</dialog>
+
+<script src="cover-paint.js"></script>
+<script>
+(function(){
+  'use strict';
+  var AGENTS = [
+    {id:'SHADDAI', role:'Orchestrator', m:'#d8322b', scene:'planet', seed:11, sky:'#0d0820,#3a1a4a,#b8442e,#f0a050', accent:'#a83a2a', story:'The Council Convenes', docs:28, kb:'Strategy, decisions, manifestation', goal:'I have $5k and a SaaS idea. Plan my launch.'},
+    {id:'NEXUS', role:'Architect', m:'#2b6fd8', scene:'robot', seed:22, sky:'#0a1830,#1f4f8a,#7ab0d8', eye:'#9ff', story:'Cold Iron Architecture', docs:6, kb:'Scalable system design, engineering', goal:'Design the API for a booking service.'},
+    {id:'ZEROX', role:'Markets', m:'#e8a21c', scene:'sun', seed:33, sky:'#f5d23a,#f2b81e,#e09a10', story:'The Unit Economics of Dawn', docs:14, kb:'Money, investing, unit economics', goal:'Is a $19/month plan profitable at my CAC?'},
+    {id:'ORACLE', role:'Research', m:'#8a46d0', scene:'nebula', seed:44, sky:'#05030f,#1a0b33,#2c0f3c', accent:'#a46cff', story:'Signals from the Library', docs:10, kb:'Manifestation, law of attraction, research', goal:'Summarize what the library says about focus.'},
+    {id:'TURTLE', role:'Creative', m:'#16a596', scene:'sketch', seed:55, sky:'#4a7fae,#2f5f8e,#1d3d60', story:'Paint the Machine', docs:6, kb:'Art, design, creative process', goal:'Give my brand a palette with a point of view.'},
+    {id:'QUILL', role:'Writing', m:'#f07a1a', scene:'portal', seed:66, sky:'#0e3a4a,#1b5c6a,#0a2430', story:'Every Word Earns Its Place', docs:17, kb:'Stoic discipline, writing craft', goal:'Write a launch thread that does not sound like an ad.'},
+    {id:'PIKADON', role:'Security', m:'#f2efe6', scene:'split', seed:77, story:'The Locked Room', docs:4, kb:'Privacy, online security, hardening', goal:'Harden my laptop before I travel.'}
+  ];
+  var BOOKS = [
+    {t:'I, Aura', s:'By the SHADDAI studio', scene:'robot', seed:101, sky:'#5a0a1e,#a2163a,#5a0a1e', eye:'#fff', pos:'mid',
+      tag:'AURA context optimizer', b:'Sends only what this turn needs. On a 40-tool agent with real prompts, 82% of tool-schema tokens cut.'},
+    {t:'The Rest of the Agents', s:'SHADDAI MCP 2.3.0', scene:'split', seed:102, pos:'top',
+      tag:'shaddai-mcp', b:'Seven agents and 85 source documents as one key-free MCP server. Five tools, seven browsable knowledge bases.'},
+    {t:'The Caves of Cache', s:'An AURA mystery', scene:'sketch', seed:103, sky:'#6a9ac6,#4a7aa8,#3a6290', pos:'top',
+      tag:'Persistent tool cache', b:'Results survive restarts. Prices and "today" answers expire in 15 minutes. Secrets never touch the disk.'},
+    {t:'The Naked Context', s:'aura_trim_output', scene:'sun', seed:104, sky:'#f6d43a,#f1c21e,#e8b010', pos:'top', dark:true,
+      tag:'Output trimming', b:'Strips noisy npm, build, test and git output before it reaches context, and always keeps the line that explains a failure.'},
+    {t:'Agents of Dawn', s:'The council series', scene:'city', seed:105, sky:'#3a0612,#9a2a1a,#e8602a,#f7c35a', pos:'top',
+      tag:'run_agent', b:'Routes a goal to the right agent, injects that agent\'s passages, and hands Claude a persona and an instruction.'},
+    {t:'Tools and Empire', s:'aura_select_tools', scene:'portal', seed:106, sky:'#0e3a4a,#1b5c6a,#0a2430', pos:'top',
+      tag:'Tool selection', b:'Your agent re-sends its whole toolbox on every call. AURA picks the handful this turn will use.'},
+    {t:'Token Dreams', s:'Distill and compress', scene:'nebula', seed:107, sky:'#05030f,#24123a,#3c1840', accent:'#ff9a3c', pos:'top',
+      tag:'Prompt distill + history compress', b:'Compacts stale history and bloated system prompts. Deterministic, so the same input always gives the same output.'},
+    {t:'Design Visions', s:'SHADDAI design studio', scene:'robot', seed:108, sky:'#d8a0a8,#c28098,#7a5a7a', eye:'#ffe8a0', pos:'mid',
+      tag:'SH-UI + visual lint', b:'A vanilla design system, a lint pass that walks every dashboard view, and three workflow playbooks.'}
+  ];
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+
+  function coverHTML(a, small){
+    return '<div class="cover" style="--m:'+a.m+'">'+
+      '<canvas class="art" data-scene="'+a.scene+'" data-seed="'+a.seed+'"'+(a.sky?' data-sky="'+a.sky+'"':'')+(a.accent?' data-accent="'+a.accent+'"':'')+(a.eye?' data-eye="'+a.eye+'"':'')+' aria-hidden="true"></canvas>'+
+      '<span class="date">'+(small||'')+'</span>'+
+      '<div class="mast">Shaddai<span class="apos">\'s</span></div>'+
+      '<div class="sf"><b>S</b>CIENCE <b>F</b>ICTION</div>'+
+      '<ul class="lines"><li class="lead">'+esc(a.id)+'<em>'+esc(a.story)+'</em></li><li>'+esc(a.role)+'</li></ul>'+
+      '<div class="price"><span>$2.95 U.S.</span><svg class="barcode" data-code="'+a.id+a.seed+'" aria-hidden="true"></svg></div><div class="gloss"></div></div>';
+  }
+
+  var months=['JANUARY','FEBRUARY','MARCH','APRIL','MAY','JUNE','JULY'];
+  var haul=document.getElementById('haul');
+  haul.innerHTML = AGENTS.map(function(a,i){
+    return '<button type="button" data-i="'+i+'" aria-label="Open '+a.id+', '+a.role+'">'+coverHTML(a, months[i]+' 2026')+'</button>';
+  }).join('') + '<p class="note"><b>Collector\'s haul</b>Seven issues on the living-room carpet, one per agent. Editorial cat sold separately.</p>';
+
+  var shelf=document.getElementById('shelf');
+  shelf.innerHTML = BOOKS.map(function(b){
+    var ink = b.dark ? '#c8301e' : '#fff';
+    return '<article class="book rise"><div class="cover">'+
+      '<canvas class="art" data-scene="'+b.scene+'" data-seed="'+b.seed+'"'+(b.sky?' data-sky="'+b.sky+'"':'')+(b.accent?' data-accent="'+b.accent+'"':'')+(b.eye?' data-eye="'+b.eye+'"':'')+' aria-hidden="true"></canvas>'+
+      '<div class="t '+(b.pos==='top'?'top':'')+'" style="color:'+ink+'"><h3>'+esc(b.t)+'</h3><p>'+esc(b.s)+'</p></div><div class="gloss"></div></div>'+
+      '<p class="blurb"><b>'+esc(b.tag)+'</b>'+esc(b.b)+'</p></article>';
+  }).join('');
+
+  // Barcodes: bar widths derived from the code string so each issue has its own.
+  function barcodes(root){
+    (root||document).querySelectorAll('svg.barcode').forEach(function(svg){
+      var code=svg.dataset.code||'0', x=0, bars='';
+      svg.setAttribute('viewBox','0 0 100 30'); svg.setAttribute('preserveAspectRatio','none');
+      for(var i=0;x<100;i++){var c=code.charCodeAt(i%code.length)+i*7, w=1+(c%3), gap=1+((c>>2)%2); if(x+w>100)break; bars+='<rect x="'+x+'" y="0" width="'+w+'" height="30" fill="#111"/>'; x+=w+gap;}
+      svg.innerHTML=bars;
+    });
+  }
+  barcodes();
+  if(window.CoverPaint) CoverPaint.paintAll();
+
+  // Contents-page dialog
+  var dlg=document.getElementById('contents'), inner=document.getElementById('contents-inner');
+  haul.addEventListener('click',function(e){
+    var btn=e.target.closest('button[data-i]'); if(!btn)return;
+    var a=AGENTS[+btn.dataset.i];
+    inner.innerHTML = coverHTML(a,'')+
+      '<div style="min-width:0"><p class="kicker">Contents</p><h3 id="ct-title" style="--m:'+(a.id==='PIKADON'?'#1d1410':a.m)+'">'+esc(a.id)+'</h3>'+
+      '<p class="role">'+esc(a.role)+' · '+esc(a.story)+'</p>'+
+      '<dl><dt>Library</dt><dd>'+esc(a.kb)+'</dd><dt>Documents</dt><dd>'+a.docs+' in kb_'+a.id.toLowerCase()+'</dd><dt>Tool</dt><dd>run_agent / rag_ask</dd></dl>'+
+      '<pre>run_agent {\n  "agent": "'+a.id+'",\n  "goal": "'+esc(a.goal)+'"\n}</pre></div>';
+    if(dlg.showModal){dlg.showModal();} else dlg.setAttribute('open','');
+    if(window.CoverPaint) CoverPaint.paintAll(inner); barcodes(inner);
+  });
+  dlg.querySelector('.close').addEventListener('click',function(){dlg.close()});
+  dlg.addEventListener('click',function(e){if(e.target===dlg)dlg.close()});
+
+  // Copy buttons
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var el=document.getElementById(b.dataset.copy), txt=el.textContent;
+      function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy'},1600)}
+      function fallback(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
+      try{navigator.clipboard.writeText(txt).then(done,fallback)}catch(err){fallback()}
+    });
+  });
+
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Hero parallax: the painted art drifts against the type.
+  var hero=document.getElementById('hero-cover');
+  if(!reduce && hero){
+    var art=hero.querySelector('canvas');
+    hero.parentElement.addEventListener('pointermove',function(e){
+      var r=hero.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      hero.style.transform='rotate(-2deg) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg)';
+      art.style.transform='scale(1.08) translate('+(-x*14)+'px,'+(-y*14)+'px)';
+    });
+    hero.parentElement.addEventListener('pointerleave',function(){hero.style.transform='';art.style.transform='';});
+  }
+
+
+  // ── Read the originals: a 3D swivel of Asimov's books ──
+  // Affiliate IDs are optional. Leave empty for plain links; if you fill them in, the page must disclose it.
+  var AFFILIATE = { amazonTag: '' };
+  var ASIMOV = [
+    ['I, Robot',1950,'Robot series','robot','#5a0a1e,#a2163a,#5a0a1e'],
+    ['The Caves of Steel',1954,'Robot series','sketch','#6a9ac6,#4a7aa8,#3a6290'],
+    ['The Naked Sun',1957,'Robot series','sun','#f6d43a,#f1c21e,#e8b010'],
+    ['The Rest of the Robots',1964,'Robot series','split',''],
+    ['The Robots of Dawn',1983,'Robot series','city','#3a0612,#9a2a1a,#e8602a,#f7c35a'],
+    ['Robots and Empire',1985,'Robot series','portal','#0e3a4a,#1b5c6a,#0a2430'],
+    ['Robot Dreams',1986,'Short stories','robot','#7a6a6a,#5a4a4a,#2a2020'],
+    ['Robot Visions',1990,'Short stories','robot','#d8a0a8,#c28098,#7a5a7a'],
+    ['The Complete Robot',1982,'Short stories','planet','#120a26,#4a1840,#c8502e,#f2a65a'],
+    ['Foundation',1951,'Foundation series','nebula','#05030f,#1a0b33,#2c0f3c'],
+    ['Foundation and Empire',1952,'Foundation series','planet','#020818,#0b2a5a,#3a7ab8'],
+    ['Second Foundation',1953,'Foundation series','nebula','#05030f,#24123a,#3c1840'],
+    ["Foundation's Edge",1982,'Foundation series','portal','#1a0a2a,#3a1a5a,#0a0418'],
+    ['Pebble in the Sky',1950,'Galactic Empire','planet','#0d0820,#3a1a4a,#b8442e,#f0a050'],
+    ['The End of Eternity',1955,'Standalone novel','sketch','#2a5a5a,#1a4a4a,#0a2a2a'],
+    ['The Gods Themselves',1972,'Standalone novel','sun','#f08a3a,#e86a20,#b84a10']
+  ];
+  var N = ASIMOV.length, STEP = 360 / N, rot = 0, ring = document.getElementById('ring'), sw = document.getElementById('swivel');
+  var enc = encodeURIComponent;
+  function q(b){ return b[0] + ' Isaac Asimov'; }
+  ring.innerHTML = ASIMOV.map(function(b, k){
+    return '<div class="ob" style="--a:'+(k*STEP)+'deg" data-k="'+k+'"><div class="cover">'+
+      '<canvas class="art" data-scene="'+b[3]+'" data-seed="'+(300+k)+'"'+(b[4]?' data-sky="'+b[4]+'"':'')+' aria-hidden="true"></canvas>'+
+      '<div class="t"><h3>'+esc(b[0])+'</h3><p>Isaac Asimov</p></div><div class="gloss"></div></div></div>';
+  }).join('');
+  var obs = [].slice.call(ring.children);
+
+  function radius(){ var w = obs[0].getBoundingClientRect().width || 150; return Math.round((w / 2) / Math.tan(Math.PI / N)) + 24; }
+  function layout(){ ring.style.setProperty('--rz', radius() + 'px'); apply(); }
+  function front(){ return ((Math.round(-rot / STEP) % N) + N) % N; }
+  function apply(){
+    ring.style.transform = 'translateZ(' + (-radius()) + 'px) rotateY(' + rot + 'deg)';
+    var f = front(), b = ASIMOV[f];
+    obs.forEach(function(o, k){ o.classList.toggle('front', k === f); o.setAttribute('aria-hidden', k !== f); });
+    document.getElementById('ob-title').textContent = b[0];
+    document.getElementById('ob-meta').textContent = b[1] + ' · ' + b[2];
+    var amz = 'https://www.amazon.com/s?k=' + enc(q(b)) + '&i=stripbooks' + (AFFILIATE.amazonTag ? '&tag=' + enc(AFFILIATE.amazonTag) : '');
+    document.getElementById('ob-buy').innerHTML =
+      '<a href="https://bookshop.org/search?keywords=' + enc(q(b)) + '" target="_blank" rel="noopener">Buy · Bookshop.org</a>' +
+      '<a href="' + amz + '" target="_blank" rel="noopener' + (AFFILIATE.amazonTag ? ' sponsored' : '') + '">Buy · Amazon</a>' +
+      '<a href="https://openlibrary.org/search?q=' + enc(b[0]) + '&author=Isaac+Asimov" target="_blank" rel="noopener">Borrow · Open Library</a>';
+  }
+  function turn(d){ rot -= d * STEP; apply(); }
+  document.getElementById('spin-prev').onclick = function(){ turn(-1); };
+  document.getElementById('spin-next').onclick = function(){ turn(1); };
+  sw.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){e.preventDefault();turn(1)} if(e.key==='ArrowLeft'){e.preventDefault();turn(-1)} });
+  ring.addEventListener('click', function(e){ var o = e.target.closest('.ob'); if(o && !moved){ var k=+o.dataset.k, d=((k-front())%N+N)%N; if(d>N/2)d-=N; turn(d); } });
+
+  // Drag / swipe to spin, snapping to the nearest book on release.
+  var x0 = null, r0 = 0, moved = false;
+  sw.addEventListener('pointerdown', function(e){ x0 = e.clientX; r0 = rot; moved = false; ring.classList.add('dragging'); });
+  addEventListener('pointermove', function(e){ if(x0===null)return; var dx = e.clientX - x0; if(Math.abs(dx)>4)moved = true; rot = r0 + dx * 0.35; apply(); });
+  addEventListener('pointerup', function(){ if(x0===null)return; x0 = null; ring.classList.remove('dragging'); rot = Math.round(rot / STEP) * STEP; apply(); idle = 0; });
+
+  // Slow auto-turn while nobody is touching it (skipped for reduced motion or a hidden tab).
+  var idle = 0;
+  if(!reduce) setInterval(function(){ if(document.hidden || x0!==null || sw.matches(':hover') || sw.contains(document.activeElement)) { idle = 0; return; } if(++idle >= 4){ turn(1); idle = 0; } }, 1000);
+
+  // Covers: ask Open Library for each title's cover id (cached per browser), swap it in when it loads.
+  function cacheGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
+  function cacheSet(k,v){ try { localStorage.setItem(k, v); } catch(e){} }
+  function setCover(o, id){
+    if(!id || id === 'none') return;
+    var img = new Image(); img.alt = ''; img.decoding = 'async'; img.referrerPolicy = 'no-referrer';
+    img.onload = function(){ if(img.naturalWidth > 20){ o.querySelector('.cover').prepend(img); o.classList.add('has-img'); } };
+    img.src = 'https://covers.openlibrary.org/b/id/' + id + '-M.jpg';
+  }
+  function loadCovers(){
+    var queue = obs.slice();
+    function next(){
+      var o = queue.shift(); if(!o) return;
+      var b = ASIMOV[+o.dataset.k], key = 'ol-cover:' + b[0], hit = cacheGet(key);
+      if(hit){ setCover(o, hit); return next(); }
+      fetch('https://openlibrary.org/search.json?title=' + enc(b[0]) + '&author=' + enc('Isaac Asimov') + '&fields=cover_i,title&limit=5')
+        .then(function(r){ return r.ok ? r.json() : null; })
+        .then(function(j){ var d = j && (j.docs || []).find(function(x){ return x.cover_i; }); var id = d ? String(d.cover_i) : 'none'; cacheSet(key, id); setCover(o, id); })
+        .catch(function(){})
+        .then(function(){ setTimeout(next, 120); });
+    }
+    next(); next();
+  }
+  layout(); addEventListener('resize', layout);
+  if('IntersectionObserver' in window){
+    var once = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ once.disconnect(); loadCovers(); } }, { rootMargin: '400px' });
+    once.observe(sw);
+  } else loadCovers();
+
+  // Scroll reveal: elements start visible; only those still below the fold get the pre-state.
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.remove('pre');io.unobserve(en.target);}})},{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rise').forEach(function(el){
+      if(el.getBoundingClientRect().top>innerHeight){el.classList.add('pre');io.observe(el);}
+    });
+  }
+})();
+</script>
+</body>
+</html>

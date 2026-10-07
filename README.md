@@ -5,6 +5,7 @@ One private home for design systems, creative workflows and the tools that audit
 ```
 sh-ui/          vanilla design system for the dashboard (buttons, tabs, fields, cards, empty states, tables, dialogs)
 tools/          dash-visual-lint.js — walks every dashboard view and reports visual problems as JSON
+site/           SHADDAI'S SCIENCE FICTION: pulp-magazine site + slide deck (static, no build)
 workflows/      scenario playbooks as data (workflows.json): UGC ads, game pitch + trailer, long video to shorts
 ```
 
@@ -24,3 +25,9 @@ Existing pieces these chain together: dashboard Media Studio (image / video / vo
 
 ## Status
 v0.1: design system + lint + three workflows. Next: wire `run_workflow` into the SHADDAI MCP server, add scenario packs (launch kit, creator media kit, game update post), version each pack.
+
+## Site (`site/`)
+Static, no build step. Open `site/index.html` or `site/slides.html` in a browser, or serve the folder.
+- `MASTER-PROMPT.md`: the brief QUILL wrote via `shaddai-mcp run_agent` (TURTLE and NEXUS passages included).
+- `cover-paint.js`: procedural painted covers (8 seeded canvas scenes), shared by site and deck.
+- **Read the originals** swivel: 16 Isaac Asimov books. Covers load live from Open Library's covers API in the visitor's browser (nothing rehosted); each book links to Bookshop.org, Amazon and Open Library. To earn on referrals, set `AFFILIATE.amazonTag` in `index.html` and add a disclosure line.
