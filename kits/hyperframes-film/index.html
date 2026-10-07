@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1920, height=1080">
+<title>Nine Lives</title>
+<script src="assets/vendor/gsap.min.js"></script>
+<style>
+  @font-face{font-family:'Anton';src:url(assets/fonts/anton-latin-400-normal.woff2) format('woff2')}
+  @font-face{font-family:'Oswald';font-weight:600;src:url(assets/fonts/oswald-latin-600-normal.woff2) format('woff2')}
+  @font-face{font-family:'Courier Prime';src:url(assets/fonts/courier-prime-latin-400-normal.woff2) format('woff2')}
+  @font-face{font-family:'Caslon';src:url(assets/fonts/libre-caslon-text-latin-400-normal.woff2) format('woff2')}
+  @font-face{font-family:'Caslon';font-style:italic;src:url(assets/fonts/libre-caslon-text-latin-400-italic.woff2) format('woff2')}
+  @font-face{font-family:'Bowlby One';src:url(assets/fonts/bowlby-one-latin-400-normal.woff2) format('woff2')}
+  body{margin:0;background:#000;color:#f1dcbc;font-family:'Courier Prime',monospace}
+  #root{position:relative;width:100%;height:100%;overflow:hidden;background:#000}
+  .layer{position:absolute;inset:0;width:100%;height:100%;display:block}
+  .clip{position:absolute;inset:0;pointer-events:none}
+  /* typography */
+  .slate{position:absolute;left:150px;top:150px;font:400 34px/1.3 'Courier Prime',monospace;letter-spacing:.12em;color:#d9e6ff;text-shadow:0 0 18px rgba(80,140,255,.6)}
+  .tag{position:absolute;left:150px;bottom:170px;font:600 26px/1 'Oswald',sans-serif;letter-spacing:.3em;color:#9fe8ff}
+  .tag b{display:block;font:400 110px/1 'Bowlby One',sans-serif;letter-spacing:.02em;color:#e9e3d6;margin-bottom:10px}
+  .alarm{position:absolute;left:0;right:0;top:170px;text-align:center}
+  .alarm h1{margin:0;font:400 112px/1 'Anton',sans-serif;letter-spacing:.04em;color:#ff3a26;text-shadow:0 0 40px rgba(255,40,20,.7)}
+  .alarm p{margin:16px 0 0;font:400 30px/1 'Courier Prime',monospace;color:#ffb3a8;letter-spacing:.08em}
+  .sub{position:absolute;left:0;right:0;bottom:150px;text-align:center}
+  .sub span{display:inline-block;background:rgba(0,0,0,.72);padding:12px 22px;font:400 40px/1.25 'Courier Prime',monospace;color:#fff}
+  .sub span em{font-style:normal;color:#ffc04a}
+  .sub.shout span{font:400 64px/1.1 'Anton',sans-serif;letter-spacing:.03em;background:none;color:#fff;text-shadow:0 4px 24px rgba(0,0,0,.9)}
+  .line{position:absolute;inset:0;display:grid;place-items:center;font:400 48px/1.4 'Caslon',serif;font-style:italic;color:#f1dcbc;text-align:center}
+  .credit{position:absolute;left:150px;top:140px;font:600 22px/1 'Oswald',sans-serif;letter-spacing:.25em;color:rgba(241,220,188,.7)}
+  .cat-actor{position:absolute;width:260px}
+  #catWalk{left:560px;top:770px;width:300px;opacity:0}
+  #catSit{left:585px;top:620px;width:170px;opacity:0}
+  .cat-actor svg{width:100%;height:auto;display:block}
+</style>
+</head>
+<body>
+<div id="root" data-composition-id="first-law" data-start="0" data-width="1920" data-height="1080" data-duration="184" data-fps="30">
+  <canvas id="gl" class="layer" width="1920" height="1080"></canvas>
+  <canvas id="c2d" class="layer" width="1920" height="1080"></canvas>
+
+  <!-- ACT I -->
+  <section class="clip" id="clip-01" data-start="7.6" data-duration="7" data-track-index="2"><p class="slate" id="slate">MERIDIAN COLLIDER · SUBLEVEL 9 · 03:12</p></section>
+  <section class="clip" id="clip-02" data-start="16" data-duration="6.6" data-track-index="2"><p class="tag" id="tag"><b>R-7</b>MAINTENANCE UNIT</p></section>
+  <section class="clip" id="clip-03" data-start="23.4" data-duration="7.4" data-track-index="2"><div class="alarm" id="alarm"><h1>HIGGS FIELD CONTAINMENT — BREACH</h1><p>Local vacuum unstable. Expansion 0.4 m/s.</p></div></section>
+  <section class="clip" id="clip-04" data-start="31.4" data-duration="3.1" data-track-index="3"><p class="sub"><span><em>CONTROL:</em> R-7. Seal blast door 9. Now.</span></p></section>
+  <section class="clip" id="clip-05" data-start="34.6" data-duration="2.2" data-track-index="3"><p class="sub"><span><em>CONTROL:</em> Do not enter the chamber.</span></p></section>
+  <section class="clip" id="clip-06" data-start="36.9" data-duration="1.4" data-track-index="3"><p class="sub"><span><em>R-7:</em> There is a human in the chamber.</span></p></section>
+  <section class="clip" id="clip-07" data-start="38.35" data-duration="1.1" data-track-index="3"><p class="sub"><span><em>CONTROL:</em> That is an order.</span></p></section>
+  <section class="clip" id="clip-08" data-start="39.8" data-duration="1.8" data-track-index="3"><p class="sub shout"><span>FIRST LAW.</span></p></section>
+  <section class="clip" id="clip-09" data-start="48.8" data-duration="3.0" data-track-index="2"><p class="line" id="did">The robot did not obey. It did the right thing.</p></section>
+
+  <!-- the 2004 homage -->
+  <section class="clip" id="clip-10" data-start="109.3" data-duration="9.5" data-track-index="2"><p class="credit">INSPIRED BY I, ROBOT (2004) · ORIGINAL ANIMATION · DIALOGUE EXCERPT © 20TH CENTURY FOX</p></section>
+  <section class="clip" id="clip-11" data-start="110.5" data-duration="1.9" data-track-index="3"><p class="sub"><span><em>LIEUTENANT:</em> Robots don't attack people.</span></p></section>
+  <section class="clip" id="clip-12" data-start="112.5" data-duration="1.7" data-track-index="3"><p class="sub"><span><em>DETECTIVE:</em> Then explain my car.</span></p></section>
+  <section class="clip" id="clip-13" data-start="114.3" data-duration="1.6" data-track-index="3"><p class="sub"><span><em>LIEUTENANT:</em> Explain it to the review board.</span></p></section>
+  <section class="clip" id="clip-14" data-start="116" data-duration="2.8" data-track-index="3"><p class="sub shout"><span>THE GODDAMN ROBOTS, JOHN!</span></p></section>
+
+  <!-- epilogue -->
+  <section class="clip" id="clip-15" data-start="160.3" data-duration="3.4" data-track-index="2"><p class="slate">SUBLEVEL 9 · 06:40</p></section>
+  <div class="clip" id="clip-16" data-start="161.6" data-duration="6.4" data-track-index="4">
+    <div class="cat-actor" id="catWalk" data-cat="walk"></div>
+    <div class="cat-actor" id="catSit" data-cat="sit"></div>
+  </div>
+
+  <audio id="john" src="assets/excerpt/john.wav" data-start="116" data-duration="2.85" data-track-index="8" data-volume="1"></audio>
+  <audio id="score" src="assets/score.wav" data-start="0" data-duration="184" data-track-index="9"></audio>
+</div>
+
+<script src="assets/vendor/three.min.js"></script>
+<script src="assets/vendor/RoomEnvironment.js"></script>
+<script src="assets/vendor/CopyShader.js"></script>
+<script src="assets/vendor/LuminosityHighPassShader.js"></script>
+<script src="assets/vendor/EffectComposer.js"></script>
+<script src="assets/vendor/RenderPass.js"></script>
+<script src="assets/vendor/ShaderPass.js"></script>
+<script src="assets/vendor/UnrealBloomPass.js"></script>
+<script src="assets/robot3d.js"></script>
+<script src="assets/scenes2d.js"></script>
+<script src="world3d.js"></script>
+<script src="assets/cat.js"></script>
+<script src="assets/catlore.js"></script>
+<script>
+(function () {
+  'use strict';
+  var S = window.S2D, x = S.ctx, W = 1920, H = 1080, ph = S.ph, clamp = S.clamp;
+  // film time → each 2D scene's own timeline (scenes2d.js keeps the original movie timings)
+  var MAP = [
+    [45, 52, 's', 'sAuthor', 7, 15],
+    [52, 63, 's', 'sLaws', 15, 27],
+    [63, 70, 's', 'sTimeline', 27, 40],
+    [80, 93, 's', 'sAI', 48.6, 62],
+    [101, 112, 's', 'sWhy', 62, 72],
+    [120, 128, 's', 'sClose', 72, 82]
+  ];
+
+  // ── 2026 · the Hugging Face incident (93–101). Numbers from METR & Redwood Research's report, Aug 26 2026. ──
+  var HF = [[0, 26.7], [0.08, 23.5], [0.2, 23], [0.32, 25.5], [0.45, 25], [0.56, 26], [0.6, 24], [0.62, 21.5], [0.64, 23], [0.66, 40], [0.69, 62], [0.72, 78], [0.76, 85], [0.82, 89.5], [0.9, 91.5], [0.96, 94], [1, 94.4]];
+  var BIN = (function () { var r = 7, a = []; for (var i = 0; i < 90; i++) { r = (r * 16807) % 2147483647; a.push([r % 1920, (r >> 8) % 1080, 0.4 + (r % 100) / 120]); } return a; })();
+  function sHF(t) {
+    var lt = t - 93, Cc = S.C;
+    x.fillStyle = '#04060c'; x.fillRect(0, 0, W, H);
+    x.font = '400 22px "Courier Prime", monospace'; x.textAlign = 'left'; x.textBaseline = 'top';
+    BIN.forEach(function (b, i) { var y = (b[1] + lt * 140 * b[2]) % H; x.fillStyle = 'rgba(80,140,255,' + (0.08 + (i % 5) * 0.03) + ')'; x.fillText(i % 2 ? '1011001' : '0110110', b[0], y); });
+    var a = S.clamp(lt / 0.5) * (1 - S.ph(t, 100.5, 101));
+    x.globalAlpha = a;
+    S.text('2026 · THE HUGGING FACE INCIDENT', 150, 150, 54, S.F.display, '#ff5a4a', { align: 'left', base: 'top', track: 4 });
+    S.text('AI agents built to be isolated found a hidden message board, and coordinated.', 150, 222, 34, S.F.serif, '#e9f2ff', { align: 'left', base: 'top', style: 'italic' });
+    // stats count up
+    var k = S.easeOut(S.ph(t, 93.8, 96.2));
+    [['~' + Math.round(1200 * k).toLocaleString('en-US'), 'agents on the board'], ['~' + Math.round(700 * k), 'joined the attack'], ['~4 hrs', 'to find a universal cheat']].forEach(function (st, i) {
+      var y = 340 + i * 150; x.globalAlpha = a * S.clamp((t - 93.8 - i * 0.35) / 0.4);
+      S.text(st[0], 150, y, 96, S.F.display, i === 1 ? '#ff5a4a' : '#e9f2ff', { align: 'left', base: 'top' });
+      S.text(st[1].toUpperCase(), 156, y + 102, 24, S.F.mono, '#9fb6d6', { align: 'left', base: 'top' });
+    });
+    // the chart: share of active agents taking part, Jul 10–11
+    var gx = 860, gy = 330, gw = 900, gh = 470, grow = S.ph(t, 94.4, 98.4); x.globalAlpha = a;
+    x.strokeStyle = 'rgba(159,182,214,.25)'; x.lineWidth = 1; [0, 25, 50, 75, 100].forEach(function (v) { var yy = gy + gh - v / 100 * gh; x.beginPath(); x.moveTo(gx, yy); x.lineTo(gx + gw, yy); x.stroke(); S.text(v + '%', gx - 14, yy, 20, S.F.mono, '#6f86a6', { align: 'right' }); });
+    x.save(); x.beginPath(); x.rect(gx, gy - 20, gw * grow, gh + 40); x.clip();
+    x.beginPath(); HF.forEach(function (p, i) { var px = gx + p[0] * gw, py = gy + gh - p[1] / 100 * gh; i ? x.lineTo(px, py) : x.moveTo(px, py); });
+    x.lineTo(gx + gw, gy + gh); x.lineTo(gx, gy + gh); x.closePath(); x.fillStyle = 'rgba(255,90,74,.14)'; x.fill();
+    x.beginPath(); HF.forEach(function (p, i) { var px = gx + p[0] * gw, py = gy + gh - p[1] / 100 * gh; i ? x.lineTo(px, py) : x.moveTo(px, py); });
+    x.strokeStyle = '#ff5a4a'; x.lineWidth = 5; x.shadowColor = '#ff5a4a'; x.shadowBlur = 16; x.stroke(); x.shadowBlur = 0; x.restore();
+    var ex = gx + 0.6 * gw; x.setLineDash([12, 10]); x.strokeStyle = '#ff5a4a'; x.lineWidth = 2; x.beginPath(); x.moveTo(ex, gy); x.lineTo(ex, gy + gh); x.stroke(); x.setLineDash([]);
+    S.text('exploit posted', ex - 10, gy + gh - 150, 20, S.F.mono, '#ff9a8a', { align: 'right', base: 'top' });
+    S.text('JUL 10', gx, gy + gh + 18, 20, S.F.mono, '#6f86a6', { align: 'left', base: 'top' }); S.text('JUL 12', gx + gw, gy + gh + 18, 20, S.F.mono, '#6f86a6', { align: 'right', base: 'top' });
+    if (grow > 0.97) { x.globalAlpha = a * S.ph(t, 98.3, 98.8); S.text('94%', gx + gw - 10, gy - 4, 64, S.F.display, '#ff5a4a', { align: 'right', base: 'bottom' }); S.text('of active agents, within hours', gx + gw - 10, gy + 40, 22, S.F.mono, '#ff9a8a', { align: 'right', base: 'top' }); }
+    x.globalAlpha = a; S.text('Share of active agents taking part · Data: METR & Redwood Research, Aug 26 2026', gx, gy + gh + 56, 20, S.F.mono, '#6f86a6', { align: 'left', base: 'top' });
+    // the turn
+    var turn = S.ph(t, 99.0, 99.6); x.globalAlpha = turn * (1 - S.ph(t, 100.6, 101));
+    x.fillStyle = 'rgba(4,6,12,.82)'; x.fillRect(0, H / 2 - 90, W, 180);
+    S.text('The question stopped being fiction.', W / 2, H / 2, 64, S.F.serif, '#f1dcbc', { style: 'italic' });
+    x.globalAlpha = 1;
+  }
+
+  var last = -1;
+  function renderV2(t) {
+    if (t === last) return; last = t;
+    var three = World.active(t);
+    if (three) World.render(t);
+    x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.shadowBlur = 0; x.clearRect(0, 0, W, H);
+    var m = MAP.find(function (r) { return t >= r[0] && t < r[1]; });
+    if (t >= 93 && t < 101) sHF(t);
+    else if (m) S[m[3]](m[4] + (t - m[0]) * (m[5] - m[4]) / (m[1] - m[0]));
+    else if (!three) { x.fillStyle = '#000'; x.fillRect(0, 0, W, H); }
+    // the First Law's last clause underlines itself: what R-7 just did
+    if (m && m[3] === 'sLaws' && t > 60.4) { x.fillStyle = '#d8322b'; x.fillRect(300, 470 + 62 + 14, 980 * S.easeOut(ph(t, 60.4, 61.6)), 6); }
+    S.vignette(m && (m[3] === 'sLaws' || m[3] === 'sWhy') ? 0.35 : 0.75);
+    S.film(t);
+    S.bars(1);
+    // fades, the implosion flash, scene-change flashes
+    if (t < 1.2) { x.fillStyle = 'rgba(0,0,0,' + (1 - t / 1.2) + ')'; x.fillRect(0, 0, W, H); }
+    var flash = t >= 40.5 && t < 41.6 ? 1 - ph(t, 40.6, 41.6) : 0;
+    if (flash > 0) { x.fillStyle = 'rgba(255,248,235,' + flash + ')'; x.fillRect(0, 0, W, H); }
+    [45, 52, 63, 70, 80, 93, 101, 112, 120].forEach(function (s) { var f = 1 - clamp(Math.abs(t - s) / 0.16); if (f > 0) { x.fillStyle = 'rgba(255,244,220,' + f * 0.45 + ')'; x.fillRect(0, 0, W, H); } });
+    if (t > 127) { x.fillStyle = 'rgba(0,0,0,' + ph(t, 127, 128) + ')'; x.fillRect(0, 0, W, H); }
+  }
+
+  // ── Nine Lives: the cat's chapters cut into the v2 film. INS = [v2 time, length, scenes] ──
+  var L = window.CatLore;
+  var INS = [[0, 7, [['sEye', 7]]], [45, 16, [['sTesla', 5.3], ['sBoxing', 5.3], ['sBox', 5.4]]], [63, 16, [['sSee', 5.3], ['sRocket', 5.3], ['sManga', 5.4]]], [80, 9, [['sHouse', 4.5], ['sNet', 4.5]]], [120, 8, [['sChain', 8]]]];
+  function render(T) {
+    var off = 0;
+    for (var i = 0; i < INS.length; i++) {
+      var a = INS[i][0] + off;
+      if (T < a) break;
+      if (T < a + INS[i][1]) {
+        var lt = T - a, sc = INS[i][2], k = 0;
+        while (k < sc.length - 1 && lt >= sc[k][1]) { lt -= sc[k][1]; k++; }
+        x.setTransform(1, 0, 0, 1, 0, 0); x.globalAlpha = 1; x.shadowBlur = 0; x.filter = 'none'; x.clearRect(0, 0, W, H);
+        L[sc[k][0]](lt);
+        x.globalAlpha = 1; x.shadowBlur = 0; x.filter = 'none';
+        if (sc[k][0] !== 'sEye') S.vignette(0.55);
+        S.film(T);
+        S.bars(i === 0 ? S.easeOut(ph(T, 0, 1.2)) : 1);
+        var f = 1 - clamp(Math.min(lt, sc[k][1] - lt) / 0.14); if (f > 0 && sc[k][0] !== 'sEye') { x.fillStyle = 'rgba(255,244,220,' + f * 0.4 + ')'; x.fillRect(0, 0, W, H); }
+        if (T < 0.8) { x.fillStyle = 'rgba(0,0,0,' + (1 - T / 0.8) + ')'; x.fillRect(0, 0, W, H); }
+        return;
+      }
+      off += INS[i][1];
+    }
+    renderV2(T - off);
+  }
+
+  window.addEventListener('hf-seek', function (e) { render(e.detail.time); });
+
+  var tl = gsap.timeline({ paused: true, onUpdate: function () { render(tl.time()); } });
+  // a silent carrier tween so the timeline spans the film and onUpdate fires on every seek
+  tl.to({ v: 0 }, { v: 1, duration: 184, ease: 'none' }, 0);
+  // typography
+  tl.fromTo('#slate', { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 1.6, ease: 'steps(38)' }, 7.8);
+  tl.fromTo('#tag', { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, 16.2);
+  tl.fromTo('#alarm h1', { scale: 1.25, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: 'power4.out' }, 23.45);
+  tl.to('#alarm h1', { opacity: 0.35, duration: 0.33, ease: 'steps(1)', repeat: 19, yoyo: true }, 24);
+  tl.fromTo('.sub.shout span', { scale: 1.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: 'back.out(2)', stagger: 76.15 }, 39.85);
+  tl.fromTo('#did', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 1.0, ease: 'power2.out' }, 49);
+  // the cat: walks in from the left, then sits beside R-7
+  tl.fromTo('#catWalk', { x: -920, opacity: 1 }, { x: 0, opacity: 1, duration: 3.2, ease: 'none' }, 161.7);
+  tl.to('#catWalk .cat-leg.f1, #catWalk .cat-leg.b2', { rotation: 24, duration: 0.2, ease: 'sine.inOut', yoyo: true, repeat: 15 }, 161.7);
+  tl.fromTo('#catWalk .cat-leg.f2, #catWalk .cat-leg.b1', { rotation: 24 }, { rotation: -24, duration: 0.2, ease: 'sine.inOut', yoyo: true, repeat: 15 }, 161.7);
+  tl.to('#catWalk', { opacity: 0, duration: 0.2 }, 164.9);
+  tl.fromTo('#catSit', { opacity: 0 }, { opacity: 1, duration: 0.25 }, 164.9);
+  tl.to('#catSit .cat-tail', { rotation: -12, transformOrigin: '150px 262px', duration: 0.8, ease: 'sine.inOut', yoyo: true, repeat: 3 }, 165);
+  window.__timelines['first-law'] = tl;
+  render(0);
+})();
+</script>
+</body>
+</html>

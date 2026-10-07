@@ -1,0 +1,11 @@
+{
+  "name": "asimov-first-law",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes hyperframes@0.8.140 preview",
+    "check": "npx --yes hyperframes@0.8.140 check",
+    "score": "python3 score2.py /tmp/v2.wav && python3 score3.py /tmp/v2.wav assets/score.wav",
+    "render": "npx --yes hyperframes@0.8.140 render --output renders/nine-lives.mp4"
+  }
+}

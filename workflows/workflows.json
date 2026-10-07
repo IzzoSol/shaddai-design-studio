@@ -5,14 +5,43 @@
     {
       "id": "ugc-product-ad",
       "title": "UGC-style product ad (30-60s vertical)",
-      "inputs": ["product name + one-line promise", "3 real benefits or proof points", "target viewer", "platform (TikTok/Reels/Shorts)"],
+      "inputs": [
+        "product name + one-line promise",
+        "3 real benefits or proof points",
+        "target viewer",
+        "platform (TikTok/Reels/Shorts)"
+      ],
       "steps": [
-        { "agent": "ORACLE", "do": "Pull 5 viewer pain points and 3 competing hooks from the Brain / web search. Output: ranked hook list.", "tool": "rag_search, web_search" },
-        { "agent": "QUILL", "do": "Write 3 scripts (hook in first 2s, one benefit per beat, one CTA). Output: scripts with shot list.", "tool": "ai writer" },
-        { "agent": "TURTLE", "do": "Generate b-roll / product stills and the on-screen text cards matching the shot list.", "tool": "image gen, video studio" },
-        { "agent": "TURTLE", "do": "Voice-over (TTS) and a 20s music bed; match the cut points.", "tool": "voice/TTS, music bot, FL Studio MCP" },
-        { "agent": "NEXUS", "do": "Assemble: cut to beats, burn captions, export 9:16, 1:1 and 16:9.", "tool": "clipper (ffmpeg)" },
-        { "agent": "PIKADON", "do": "Run the compliance gate below before anything ships.", "tool": "checklist" }
+        {
+          "agent": "ORACLE",
+          "do": "Pull 5 viewer pain points and 3 competing hooks from the Brain / web search. Output: ranked hook list.",
+          "tool": "rag_search, web_search"
+        },
+        {
+          "agent": "QUILL",
+          "do": "Write 3 scripts (hook in first 2s, one benefit per beat, one CTA). Output: scripts with shot list.",
+          "tool": "ai writer"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Generate b-roll / product stills and the on-screen text cards matching the shot list.",
+          "tool": "image gen, video studio"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Voice-over (TTS) and a 20s music bed; match the cut points.",
+          "tool": "voice/TTS, music bot, FL Studio MCP"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Assemble: cut to beats, burn captions, export 9:16, 1:1 and 16:9.",
+          "tool": "clipper (ffmpeg)"
+        },
+        {
+          "agent": "PIKADON",
+          "do": "Run the compliance gate below before anything ships.",
+          "tool": "checklist"
+        }
       ],
       "qualityGate": [
         "Hook lands in under 2 seconds with sound off (captions carry it)",
@@ -26,49 +55,252 @@
         "No real person's likeness or voice without written permission",
         "Mark paid/sponsored content per platform rules"
       ],
-      "outputs": ["3 script variants", "1 master edit + 3 aspect ratios", "caption file", "hook A/B notes"],
+      "outputs": [
+        "3 script variants",
+        "1 master edit + 3 aspect ratios",
+        "caption file",
+        "hook A/B notes"
+      ],
       "mcpTool": "run_workflow('ugc-product-ad', {product, promise, proof[], audience, platform})"
     },
     {
       "id": "game-pitch-and-trailer",
       "title": "Game design pitch + 45s trailer",
-      "inputs": ["one-sentence game premise", "core loop (what you do every 30 seconds)", "3 screenshots or a playable build", "platform"],
+      "inputs": [
+        "one-sentence game premise",
+        "core loop (what you do every 30 seconds)",
+        "3 screenshots or a playable build",
+        "platform"
+      ],
       "steps": [
-        { "agent": "SHADDAI", "do": "Stress-test the premise: who plays it, why it's different, what the first 5 minutes feel like. Output: one-page design brief.", "tool": "council ask" },
-        { "agent": "NEXUS", "do": "Capture 3-5 clean gameplay clips (60fps, no UI clutter) and a 10s idle loop.", "tool": "screen capture, clipper" },
-        { "agent": "TURTLE", "do": "Key art + logo lockup + 3 feature cards in one consistent palette.", "tool": "image gen" },
-        { "agent": "TURTLE", "do": "Original 45s music cue that rises with the trailer beats; export stems.", "tool": "FL Studio MCP, music bot" },
-        { "agent": "QUILL", "do": "Store page copy: tagline, 3 bullets, long description, patch-note tone for updates.", "tool": "ai writer" },
-        { "agent": "NEXUS", "do": "Cut trailer: hook, loop, feature beats, title card with release window.", "tool": "clipper" }
+        {
+          "agent": "SHADDAI",
+          "do": "Stress-test the premise: who plays it, why it's different, what the first 5 minutes feel like. Output: one-page design brief.",
+          "tool": "council ask"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Capture 3-5 clean gameplay clips (60fps, no UI clutter) and a 10s idle loop.",
+          "tool": "screen capture, clipper"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Key art + logo lockup + 3 feature cards in one consistent palette.",
+          "tool": "image gen"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Original 45s music cue that rises with the trailer beats; export stems.",
+          "tool": "FL Studio MCP, music bot"
+        },
+        {
+          "agent": "QUILL",
+          "do": "Store page copy: tagline, 3 bullets, long description, patch-note tone for updates.",
+          "tool": "ai writer"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Cut trailer: hook, loop, feature beats, title card with release window.",
+          "tool": "clipper"
+        }
       ],
       "qualityGate": [
         "A stranger can say what you do in the game after 15 seconds",
         "Only real footage is labelled gameplay",
         "Audio ducks under voice/captions, no clipping"
       ],
-      "compliance": ["Licensed or original music only", "Credit third-party assets", "No fake review quotes or fake player counts"],
-      "outputs": ["design brief", "key art set", "45s trailer + 15s cut", "store page copy", "music stems"],
+      "compliance": [
+        "Licensed or original music only",
+        "Credit third-party assets",
+        "No fake review quotes or fake player counts"
+      ],
+      "outputs": [
+        "design brief",
+        "key art set",
+        "45s trailer + 15s cut",
+        "store page copy",
+        "music stems"
+      ],
       "mcpTool": "run_workflow('game-pitch-and-trailer', {premise, loop, clips[], platform})"
     },
     {
       "id": "long-video-to-shorts",
       "title": "Long video to captioned vertical shorts",
-      "inputs": ["video file or URL you have rights to", "target count (3-10)", "style (clean, bold, minimal)"],
+      "inputs": [
+        "video file or URL you have rights to",
+        "target count (3-10)",
+        "style (clean, bold, minimal)"
+      ],
       "steps": [
-        { "agent": "NEXUS", "do": "Transcribe locally (Whisper) with word timestamps.", "tool": "clipper: whisper" },
-        { "agent": "ORACLE", "do": "Score segments for hook strength, self-contained story, payoff. Output: ranked timestamps.", "tool": "rag / llm" },
-        { "agent": "NEXUS", "do": "Cut, reframe to 9:16 (face-aware crop), burn captions in the chosen style.", "tool": "clipper: ffmpeg" },
-        { "agent": "QUILL", "do": "Title, hook line and hashtags per short.", "tool": "ai writer" },
-        { "agent": "PIKADON", "do": "Rights + quote-accuracy check, then queue for scheduling.", "tool": "checklist" }
+        {
+          "agent": "NEXUS",
+          "do": "Transcribe locally (Whisper) with word timestamps.",
+          "tool": "clipper: whisper"
+        },
+        {
+          "agent": "ORACLE",
+          "do": "Score segments for hook strength, self-contained story, payoff. Output: ranked timestamps.",
+          "tool": "rag / llm"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Cut, reframe to 9:16 (face-aware crop), burn captions in the chosen style.",
+          "tool": "clipper: ffmpeg"
+        },
+        {
+          "agent": "QUILL",
+          "do": "Title, hook line and hashtags per short.",
+          "tool": "ai writer"
+        },
+        {
+          "agent": "PIKADON",
+          "do": "Rights + quote-accuracy check, then queue for scheduling.",
+          "tool": "checklist"
+        }
       ],
       "qualityGate": [
         "Each short stands alone with no missing context",
         "Captions match the audio word for word",
         "First frame is not black or a title card"
       ],
-      "compliance": ["Only clip content you own or have permission to use", "Keep speaker quotes accurate and in context"],
-      "outputs": ["N short videos", "caption files", "titles + hashtags", "posting schedule"],
+      "compliance": [
+        "Only clip content you own or have permission to use",
+        "Keep speaker quotes accurate and in context"
+      ],
+      "outputs": [
+        "N short videos",
+        "caption files",
+        "titles + hashtags",
+        "posting schedule"
+      ],
       "mcpTool": "run_workflow('long-video-to-shorts', {source, count, style})"
+    },
+    {
+      "id": "cinematic-token-site",
+      "title": "Cinematic token/brand site in a day (the $ASIMOV playbook)",
+      "inputs": [
+        "subject + one-line pitch (confirmed back to the user)",
+        "reference images / aesthetic",
+        "mascot + lore",
+        "token config (CA, socials, pair) or 'none yet'"
+      ],
+      "skills": [
+        "cinematic-site",
+        "token-launch-site",
+        "swivel-shelf",
+        "mascot-character",
+        "lore-fact-check"
+      ],
+      "steps": [
+        {
+          "agent": "QUILL",
+          "do": "Write MASTER-PROMPT.md: audience, sections, voice, truth rules, CTA. Confirm the subject.",
+          "tool": "ai writer"
+        },
+        {
+          "agent": "ORACLE",
+          "do": "Research and verify every fact, credit and lore item; produce the Sources list.",
+          "tool": "web_search"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Theme tokens + fonts, mascot character sheet, hero art direction. Screenshot every round.",
+          "tool": "kits/cinematic-site, tools/cat-sheet.html"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Scaffold from kits/cinematic-site (no build step), wire sections, 3D hero, intro, swivels, motion.js.",
+          "tool": "three.js r128, GSAP 3.12.5"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Playwright pass: desktop + mobile per section, zero overflow, zero page errors; fix what the screenshots show.",
+          "tool": "playwright (chromium at /opt/pw-browsers)"
+        },
+        {
+          "agent": "PIKADON",
+          "do": "Compliance gate below, then private repo → Render Blueprint.",
+          "tool": "checklist, render.yaml"
+        }
+      ],
+      "qualityGate": [
+        "Subject confirmed in one line before building",
+        "Every section screenshotted at 1360 and 390 wide, no horizontal overflow",
+        "WebGL pieces have fallbacks; reduced motion respected",
+        "Every claim sourced or hedged; every artwork credited and linked"
+      ],
+      "compliance": [
+        "No rehosted copyrighted covers, paintings or film frames: homage + credit + link",
+        "Not-affiliated and not-financial-advice lines",
+        "Affiliate disclosure once a tag is set",
+        "No invented holders, volume, partnerships or testimonials"
+      ],
+      "outputs": [
+        "private GitHub repo",
+        "Render deploy",
+        "README launch checklist",
+        "slide deck (optional)"
+      ],
+      "mcpTool": "run_workflow('cinematic-token-site', {subject, references[], mascot, token})"
+    },
+    {
+      "id": "cinematic-mini-film",
+      "title": "Original animated mini movie / trailer (HyperFrames, 1080p, 2–3 min)",
+      "inputs": [
+        "story premise + through-line",
+        "facts and lore to include",
+        "licensed excerpts (optional, with the user's OK)",
+        "target length"
+      ],
+      "skills": [
+        "hyperframes-film",
+        "lore-fact-check",
+        "mascot-character"
+      ],
+      "steps": [
+        {
+          "agent": "QUILL",
+          "do": "Script as a time/beat/visual/sound table with logline, through-line and sources.",
+          "tool": "ai writer"
+        },
+        {
+          "agent": "ORACLE",
+          "do": "Fact-check every beat; hedge or cut.",
+          "tool": "web_search"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Composition from kits/hyperframes-film: 3D world shots (CUT table), 2D chapter painters, INS remap for inserted chapters.",
+          "tool": "hyperframes, three.js, canvas"
+        },
+        {
+          "agent": "TURTLE",
+          "do": "Score (numpy synth + splice), supers, snapshot contact sheets at every beat; fix framing.",
+          "tool": "score2.py/score3.py, hyperframes snapshot"
+        },
+        {
+          "agent": "NEXUS",
+          "do": "Render in the background (~60 frames/min), verify duration and audio, compress to under 30 MB, deliver.",
+          "tool": "hyperframes render, ffmpeg"
+        }
+      ],
+      "qualityGate": [
+        "lint 0 errors",
+        "every beat snapshotted and reviewed",
+        "audio in sync (no dropped samples at splices)",
+        "end card: credits, fiction labels, not-affiliated"
+      ],
+      "compliance": [
+        "Original animation only; licensed excerpts git-ignored and credited",
+        "Fictional events labeled fictional",
+        "No real person's likeness without permission"
+      ],
+      "outputs": [
+        "MP4 1920×1080 30 fps",
+        "SCRIPT.md with sources",
+        "compressed share copy"
+      ],
+      "mcpTool": "run_workflow('cinematic-mini-film', {premise, facts[], excerpts[], length})"
     }
   ]
 }

@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><title>R-7 cover render</title>
+<style>html,body{margin:0;background:#000}canvas{display:block}</style></head><body>
+<!-- Renders the still cover art for R-7 (assets/r7-cover.jpg): node tools/render-cover.js -->
+<canvas id="c"></canvas>
+<script src="../vendor/three.min.js"></script><script src="../vendor/RoomEnvironment.js"></script>
+<script src="../vendor/CopyShader.js"></script><script src="../vendor/LuminosityHighPassShader.js"></script>
+<script src="../vendor/EffectComposer.js"></script><script src="../vendor/RenderPass.js"></script><script src="../vendor/ShaderPass.js"></script><script src="../vendor/UnrealBloomPass.js"></script>
+<script src="../robot3d.js"></script><script src="../cover-paint.js"></script>
+<script>
+var q = new URLSearchParams(location.search), shot = q.get('shot') || 'cover', W = +(q.get('w') || 1000), H = +(q.get('h') || 1400);
+var T = THREE, r = new T.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, preserveDrawingBuffer: true });
+r.setPixelRatio(1); r.setSize(W, H); r.outputEncoding = T.sRGBEncoding; r.toneMapping = T.ACESFilmicToneMapping; r.toneMappingExposure = 0.62;
+var sc = new T.Scene(), env = AsimovRobot.studio(r);
+var bg = document.createElement('canvas');
+CoverPaint.paintTo(bg, shot === 'fiction' ? { scene: 'sky', sky: '#071a2a,#0e3a4a,#1b5c6a', accent: '#ff5a2e', seed: 42 } : { scene: 'sky', sky: '#1a0208,#5a0c22,#b8342a,#f09a50', accent: '#c0402a', seed: 1950 }, W, H);
+var bt = new T.CanvasTexture(bg); bt.encoding = T.sRGBEncoding; sc.background = bt;
+var key = new T.DirectionalLight(0xffe2c0, 1.1); key.position.set(-4, 4.5, 3); sc.add(key);
+var rim = new T.DirectionalLight(0x5ab0ff, 2.6); rim.position.set(4, 2.5, -3); sc.add(rim);
+var red = new T.DirectionalLight(0xff3a1a, 1.8); red.position.set(-3, 0.5, -3); sc.add(red);
+var topLight = new T.SpotLight(0xfff0d8, 0.8, 14, 0.5, 0.6); topLight.position.set(0.4, 7, 2); topLight.target.position.set(0, 2.6, 0); sc.add(topLight); sc.add(topLight.target);
+sc.add(new T.AmbientLight(0x402020, 0.35));
+var bot = AsimovRobot.create({ eye: shot === 'fiction' ? 0xffc04a : 0x7ff6ff, envMap: env }); sc.add(bot.root);
+var cam = new T.PerspectiveCamera(26, W / H, 0.1, 60);
+if (shot === 'fiction') { bot.root.rotation.y = 0.45; bot.pose({ headYaw: -0.25, headPitch: 0.08, armR: { shoulder: [-0.3, 0, 0.3], elbow: -1.2 } }); cam.position.set(0.5, 3.05, 4.2); cam.lookAt(0, 2.85, 0); }
+else { bot.root.position.set(0.25, -0.2, 0); bot.root.rotation.y = -0.32; bot.pose({ headYaw: 0.38, headPitch: 0.04, headRoll: -0.05, chestYaw: 0.1, armL: { shoulder: [0.08, 0, -0.14], elbow: -0.3 }, armR: { shoulder: [-0.5, 0, 0.3], elbow: -1.5, wrist: [0, 0, 0.3] } }); cam.position.set(-0.6, 3.0, 6.4); cam.lookAt(0.1, 2.7, 0); }
+bot.setEye(shot === 'fiction' ? 0xffc04a : 0x7ff6ff, 1);
+var comp = new T.EffectComposer(r); comp.addPass(new T.RenderPass(sc, cam)); comp.addPass(new T.UnrealBloomPass(new T.Vector2(W, H), 0.7, 0.5, 0.92));
+comp.render(); window.DONE = true;
+</script></body></html>
