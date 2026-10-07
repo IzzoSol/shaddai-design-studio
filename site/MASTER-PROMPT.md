@@ -1,46 +1,27 @@
-# SHADDAI SCIENCE FICTION — master prompt (QUILL)
+# $ASIMOV SCIENCE FINANCE — master prompt (QUILL)
 
-Written by QUILL via `shaddai-mcp run_agent` (kb_quill: "writing is thinking — every word earns its place"),
-with TURTLE (kb_turtle: Picasso — show the subject from many viewpoints at once, fearlessly) and
-NEXUS (kb_nexus: the agent loop — observe, think, act, then verify by looking at the result).
+Voice from QUILL via `shaddai-mcp run_agent` (kb_quill, Dale Carnegie passage: "be sincere — do not promise
+anything that you cannot deliver"). Buyer-safety copy from PIKADON (kb_pikadon: password managers, separate
+identities, nobody legitimate asks for secrets). Look from TURTLE, build rules from NEXUS (observe → act → verify).
 
 ## The brief
-Build the SHADDAI site as if it were an issue of a 1990s digest science-fiction magazine and a shelf of
-1950s–80s robot paperbacks. The reader should feel they picked a magazine off a newsstand, not opened a SaaS page.
+A launch site for **$ASIMOV**, a Solana meme token themed on Isaac Asimov's robots, shown beside **NVDAx**
+(Backed Finance's tokenized NVIDIA share, 1:1 backed). The joke and the thesis: one half fiction, one half fact.
+Dressed as a 1990s digest SF magazine and a shelf of 1950s–80s robot paperbacks.
 
-## Look (TURTLE)
-- **Masthead:** huge condensed italic wordmark with a hard offset shadow, a new ink colour every issue
-  (red, gold, blue, violet, teal). Under it, "SCIENCE FICTION" letterspaced, with the S and F picked out in red.
-- **Paper:** warm newsprint (#f1dcbc), grain, faint foxing at the edges. Ink is warm black, rust red (#a5302a)
-  and a cobalt blue. No pure white, no gradients-on-white, no glassmorphism.
-- **Covers:** painted skies, ringed planets, chrome robots, lone figures. Generated on canvas so every load
-  repaints slightly differently. Halftone dot screen and a price box + barcode on every cover.
-- **Type:** Anton (masthead/cover lines), Oswald (cover-line subheads), Libre Caslon Text italic (editorial copy,
-  the "Laws" sheet), Courier Prime (fine print, issue data).
-- **The collage:** one spread shows all seven agent issues laid out on a carpet like a collector's haul,
-  slightly rotated, overlapping. Hover lifts an issue off the pile.
-
-## Voice (QUILL)
-- Cover lines are the copy: short, punchy, agent name + a story title ("NEXUS — Cold Iron Architecture").
-- Wry, never smug. The parody "Laws of Robotics" sheet is the humour beat — every joke is also a true product fact.
-- No invented testimonials, reviews, user counts or results. Real numbers only: 7 agents, 85 KB docs,
-  5 MCP tools, 9 AURA tools, 199/199 tests, 82% tool-schema tokens cut, 0 dependencies, no API keys.
-
-## Motion (TURTLE + NEXUS)
-- One orchestrated moment: the hero cover "prints" in — masthead slams down, cover lines stamp in one by one,
-  the painted art drifts with the pointer (parallax layers).
-- Scroll reveals start from a visible state (never stuck at opacity 0). Paperbacks fan out on hover.
-- The slide deck turns like magazine pages. Everything respects `prefers-reduced-motion`.
-
-## Build (NEXUS)
-- Static, no build step, no framework: `site/index.html` + `site/slides.html`, inline CSS/JS, Google Fonts only.
-- Works at 400px wide with a 16px gutter; keyboard focus visible; slides drive by ← → / swipe.
-- Verify by screenshot at desktop + phone before shipping (observe → think → act → check).
+## Truth rules (non-negotiable)
+- Only real facts: the Three Laws first appear in "Runaround" (1942); NVIDIA's robotics platform is named Isaac;
+  NVDAx mint `Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh`, not available to US persons.
+- $ASIMOV holds no NVIDIA shares and is never presented as if it does.
+- Every price is live (DexScreener) or not shown. No invented holders, volume, partners or roadmap moons.
+- No NVIDIA logo. Footer disclaims NVIDIA, Backed Finance, the Asimov estate and Asimov's Science Fiction magazine.
+- The contract address appears only from the `TOKEN` config block in `index.html`.
 
 ## Sections
-1. **Cover** — this month's issue (hero).
-2. **The collection** — 7 agent issues, click one for its contents page.
-3. **SHADDAI's Laws of Robotics** — parody sheet, true facts.
-4. **The Robot Series** — 8 paperbacks = the product line (MCP, AURA, design studio, workflows).
-5. **Subscription card** — the one-line installs, tear-off style, copy buttons.
-6. **Next issue** — what ships next (roadmap), and a link to the slide deck.
+1. Cover — "$Asimov / SCIENCE FINANCE", painted robot, live price tape in the newsstand bar.
+2. The pair — $ASIMOV (fiction) & NVDAx (fact), live prices side by side.
+3. The cast — seven of Asimov's robots (Robbie, Speedy, Cutie, Herbie, R. Daneel, Giskard, Andrew).
+4. $Asimov's Laws of Tokenomics — parody sheet; every law is real buyer-safety advice.
+5. Read the originals — 3D swivel of 16 Asimov books, live Open Library covers, Bookshop/Amazon/Open Library links.
+6. How to buy — four steps, CA copy button, official links.
+7. Slide deck — the same story in 8 turning pages.
