@@ -17,6 +17,7 @@
   --ease-slam:cubic-bezier(.2,1.4,.4,1);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--serif);
   background-image:
@@ -139,8 +140,8 @@ dialog.contents::backdrop{background:rgba(20,12,6,.7)}
 .tape i{font-style:normal;color:#ffe7b8}
 
 /* ── the pair: fiction & fact ── */
-.pair{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(12px,3vw,36px);align-items:start}
-.pcard{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:18px;background:var(--paper);padding:16px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+.pair{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(14px,3vw,36px);align-items:start}
+.pcard{display:grid;grid-template-columns:minmax(0,170px) minmax(0,1fr);gap:18px;background:var(--paper);padding:16px;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
 .pcard:first-child{transform:rotate(-.8deg)}.pcard:last-of-type{transform:rotate(.8deg)}
 .amp{align-self:center;font:400 clamp(60px,9vw,120px)/1 var(--display);font-style:italic;color:var(--rust);text-shadow:4px 4px 0 var(--ink)}
 .spec{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 12px;margin:0;font:400 13.5px/1.35 var(--mono);align-content:start}
@@ -153,8 +154,8 @@ dialog.contents::backdrop{background:rgba(20,12,6,.7)}
 .buyline a{font:600 14px/1 var(--cond);letter-spacing:.12em;text-transform:uppercase}
 #buy-card .row code{white-space:normal;overflow-wrap:anywhere}
 #buy-card .btn[disabled]{opacity:.4;cursor:not-allowed;box-shadow:none}
-@media (max-width:900px){.pair{grid-template-columns:minmax(0,1fr)}.amp{justify-self:center;line-height:.8}}
-@media (max-width:560px){.pcard{grid-template-columns:minmax(0,1fr)}.pcard .cover{max-width:220px}}
+@media (max-width:900px){.pair{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:560px){.tape span:nth-child(3){display:none}.pcard{grid-template-columns:minmax(0,1fr)}.pcard .cover{max-width:220px}}
 
 /* ── read the originals: the swivel ── */
 .originals{background:var(--ink);color:var(--paper);border-block:6px double var(--rust)}
@@ -186,6 +187,15 @@ dialog.contents::backdrop{background:rgba(20,12,6,.7)}
 .credit{font:400 12px/1.5 var(--mono);color:#cdb79a;margin:18px 0 0;max-width:80ch}
 .credit a{color:var(--gold)}
 @media (max-width:560px){.plate{grid-template-columns:auto minmax(0,1fr) auto}.plate .info{grid-column:1/-1;grid-row:2}#spin-next{grid-column:3;grid-row:1}}
+
+/* ── WebGL layers (three-scenes.js); CSS versions stay underneath as the fallback ── */
+.gl{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+.swivel.is-3d{cursor:grab}
+.swivel.is-3d .swivel-shelf{display:none}
+#orbit{position:relative;grid-column:1/-1;order:-1;justify-self:center;width:min(640px,100%);height:clamp(200px,24vw,280px);margin-bottom:-8px}
+#orbit span{position:absolute;inset:0;display:grid;place-items:center}
+#orbit.is-3d span{display:none}
+
 
 /* ── subscription card ── */
 .card{border:3px dashed var(--ink);padding:clamp(18px,3vw,34px);background:#fff4df;position:relative;max-width:900px;margin:0 auto}

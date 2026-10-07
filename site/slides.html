@@ -66,9 +66,9 @@
   </section>
 
   <section class="slide" aria-label="The pair">
-    <div class="solo"><p class="kicker">Chapter three · The pair</p><h2 class="big">$ASIMOV <span>&amp;</span> NVDAx</h2>
-      <div class="stat"><div><b>Fiction</b>$ASIMOV, a meme token on Solana</div><div><b>Fact</b>NVDAx, a tokenized NVIDIA share</div><div><b>1:1</b>NVDAx backing by real shares</div></div>
-      <p class="lede">$ASIMOV holds no NVIDIA shares. That's the point of putting them side by side.</p></div>
+    <div class="solo"><p class="kicker">Chapter three · The pair</p><div class="cols" style="padding:0"><h2 class="big">$ASIMOV <span>&amp;</span> NVDAx</h2><div id="orbit" aria-hidden="true" style="order:0;grid-column:auto;justify-self:center;width:min(420px,100%);height:280px;margin:0"><span class="big" style="color:var(--rust)">&amp;</span></div></div>
+      <div class="stat"><div><b>Fiction</b>$ASIMOV, a meme token on Solana</div><div><b>Fact</b>NVDAx, a tokenized NVIDIA share</div><div><b>1:1</b>NVDAx backing by real NVIDIA shares</div></div>
+      <p class="lede">One pool on StonkFun: $ASIMOV quoted in NVDAx. To buy the fiction you spend the fact.</p></div>
   </section>
 
   <section class="slide" aria-label="The cast">
@@ -99,7 +99,7 @@
   <section class="slide" aria-label="Read the originals">
     <div class="cols">
       <div><p class="kicker">Last page</p><h2 class="big">Read the <span>originals</span></h2><p class="lede">Every joke here borrows from Isaac Asimov. The site's bookshelf links to Bookshop.org, Amazon and Open Library.</p><p><a class="btn" href="index.html#originals">Spin the shelf</a></p>
-        <p style="font:400 12px/1.5 var(--mono);color:var(--ink-soft)">Not financial advice. Not affiliated with NVIDIA, Backed Finance or the Asimov estate.</p></div>
+        <p style="font:400 12px/1.5 var(--mono);color:var(--ink-soft)">Not financial advice. Not affiliated with NVIDIA, Backed Finance, StonkFun or the Asimov estate.</p></div>
       <article class="cover hero-c" style="--m:#2b6fd8">
         <canvas class="art" data-scene="sketch" data-seed="1954" data-sky="#6a9ac6,#4a7aa8,#3a6290"></canvas>
         <span class="date">1954</span><div class="mast">$Asimov</div><div class="sf"><b>S</b>CIENCE <b>F</b>ICTION</div>
@@ -115,6 +115,7 @@
   <button type="button" id="next" aria-label="Next page">›</button>
 </nav>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="cover-paint.js"></script>
 <script>
 (function(){
@@ -146,5 +147,6 @@
   show(i);
 })();
 </script>
+<script src="three-scenes.js"></script>
 </body>
 </html>

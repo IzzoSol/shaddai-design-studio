@@ -194,9 +194,19 @@
     (SCENES[d.scene] || SCENES.planet)(ctx, rng(+d.seed || 7), w, h, p);
   }
 
+  // Paint straight onto an offscreen canvas at a fixed size (used for WebGL textures).
+  function paintTo(canvas, opts, w, h) {
+    canvas.width = w; canvas.height = h;
+    const ctx = canvas.getContext('2d');
+    if (!ctx.roundRect) ctx.roundRect = function (x, y, ww, hh) { this.rect(x, y, ww, hh); };
+    const p = { sky: (opts.sky || '#1b1030,#6a2a4a,#f0a050').split(','), accent: opts.accent || '#c8462e', eye: opts.eye };
+    (SCENES[opts.scene] || SCENES.planet)(ctx, rng(+opts.seed || 7), w, h, p);
+    return ctx;
+  }
+
   function paintAll(root) { (root || document).querySelectorAll('canvas[data-scene]').forEach(paint); }
 
   let t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(paintAll, 150); });
-  window.CoverPaint = { paint: paint, paintAll: paintAll };
+  window.CoverPaint = { paint: paint, paintAll: paintAll, paintTo: paintTo };
   if (document.readyState !== 'loading') paintAll(); else document.addEventListener('DOMContentLoaded', function () { paintAll(); });
 })();

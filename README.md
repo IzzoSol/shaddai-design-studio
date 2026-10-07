@@ -31,5 +31,6 @@ Static, no build step. Open `site/index.html` or `site/slides.html` in a browser
 - `MASTER-PROMPT.md`: the brief QUILL wrote via `shaddai-mcp run_agent`, with the site's truth rules.
 - **Launch config:** fill the `TOKEN` block at the top of the script in `index.html` (contract address, X, Telegram, DexScreener). Empty fields stay hidden; the CA copy button and Jupiter link switch on once `ca` is set.
 - Live prices: DexScreener public API for $ASIMOV (once `ca` is set) and NVDAx.
-- `cover-paint.js`: procedural painted covers (8 seeded canvas scenes), shared by site and deck.
+- `cover-paint.js`: procedural painted covers (8 seeded canvas scenes), shared by site and deck; `paintTo()` paints offscreen WebGL textures.
+- `three-scenes.js` (three.js r128 from cdnjs): a 3D bookshelf turntable (real cover, spine and page-edge faces, drag with inertia, click a book to bring it forward) and the $ASIMOV/NVDAx coin orbit with swap particles. Renders only while on screen; respects reduced motion; without WebGL the CSS versions stay.
 - **Read the originals** swivel: 16 Isaac Asimov books. Covers load live from Open Library's covers API in the visitor's browser (nothing rehosted); each book links to Bookshop.org, Amazon and Open Library. To earn on referrals, set `AFFILIATE.amazonTag` in `index.html` and add a disclosure line.

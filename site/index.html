@@ -53,7 +53,7 @@
     <div>
       <p class="kicker">From the editor's desk</p>
       <h2>Science <span>fiction</span>, meet science fact.</h2>
-      <p class="editor">In 1942 Isaac Asimov wrote three laws for robots that didn't exist yet. Today NVIDIA builds the chips that train them, and named its robotics platform Isaac. $ASIMOV is the Solana token for people who read the fiction first. We show it next to NVDAx, a token that tracks a real NVIDIA share, because that's the joke and the thesis: one half fiction, one half fact.</p>
+      <p class="editor">In 1942 Isaac Asimov wrote three laws for robots that didn't exist yet. Today NVIDIA builds the chips that train them, and named its robotics platform Isaac. $ASIMOV is the Solana token for people who read the fiction first. It launches on StonkFun paired directly against NVDAx, a token backed 1:1 by a real NVIDIA share. To buy the fiction you spend the fact. That's the joke and the thesis.</p>
       <div class="facts" aria-label="Issue at a glance">
         <span><b>1942</b>Three Laws</span>
         <span><b>1:1</b>NVDAx share backing</span>
@@ -71,7 +71,7 @@
     <div class="wrap">
       <div class="head">
         <h2>The pair</h2>
-        <p>Left: the fiction. Right: the fact. Prices load live from DexScreener.</p>
+        <p>One pool on StonkFun: $ASIMOV quoted in NVDAx. Prices load live from DexScreener.</p>
       </div>
       <div class="pair">
         <article class="pcard">
@@ -82,13 +82,13 @@
           </div>
           <dl class="spec">
             <dt>Ticker</dt><dd>$ASIMOV</dd>
-            <dt>Chain</dt><dd>Solana</dd>
+            <dt>Pair</dt><dd>$ASIMOV / NVDAx on StonkFun</dd>
             <dt>Price</dt><dd data-px="asimov">posts at launch</dd>
             <dt>24h</dt><dd data-ch="asimov">—</dd>
             <dt>Contract</dt><dd class="ca" data-ca>posts at launch</dd>
           </dl>
         </article>
-        <div class="amp" aria-hidden="true">&amp;</div>
+        <div class="amp" id="orbit" aria-hidden="true"><span>&amp;</span></div>
         <article class="pcard">
           <div class="cover" style="--m:#76b900">
             <canvas class="art" data-scene="city" data-seed="1993" data-sky="#0a1a06,#1e3a0e,#4a7a1a,#a8d860" aria-hidden="true"></canvas>
@@ -104,7 +104,7 @@
           </dl>
         </article>
       </div>
-      <p class="fine">NVDAx is issued by Backed Finance and is not available to US persons. $ASIMOV and NVDAx are separate assets; $ASIMOV holds no NVIDIA shares and is not backed by anything. Neither project is affiliated with NVIDIA Corporation.</p>
+      <p class="fine">NVDAx is issued by Backed Finance and is not available to US persons. $ASIMOV trades against NVDAx, but $ASIMOV itself is not an NVIDIA share and is not backed by one. Neither project is affiliated with NVIDIA Corporation.</p>
     </div>
   </section>
 
@@ -139,7 +139,7 @@
           <li><div>A holder may not ape in with money they cannot afford to lose or, through inaction, skip reading the contract address.<small>Only trust the CA posted on this page and the official X account</small></div></li>
           <li><div>A holder must obey the chart, except where the chart was drawn by a stranger in your DMs.<small>No team member will ever message you first</small></div></li>
           <li><div>A wallet must protect its own existence, as long as that does not mean typing its seed phrase into any website.<small>Nobody legitimate will ever ask for your seed phrase</small></div></li>
-          <li><div>A robot must never confuse a meme token with a share of NVIDIA.<small>$ASIMOV holds no shares. NVDAx does, 1:1</small></div></li>
+          <li><div>A robot must never confuse a meme token with a share of NVIDIA.<small>$ASIMOV trades against NVDAx. Only NVDAx is backed by shares, 1:1</small></div></li>
           <li><div>Every price on this page must come from a live source, or not be shown at all.<small>Live prices load from DexScreener</small></div></li>
           <li><div>A token page may promise jokes, robots and good books, and nothing else.<small>No roadmap of moons. Not financial advice</small></div></li>
           <li><div>Before buying the token, a holder should consider buying the book.<small>See "Read the originals" below</small></div></li>
@@ -178,9 +178,9 @@
         <p class="sub">Clip and keep. Four steps, one rule: check the contract address twice.</p>
         <div class="rows">
           <div class="row"><label for="b1">1 · Get a wallet</label><code id="b1">Phantom or Solflare. Write the seed phrase on paper, never online.</code><span></span></div>
-          <div class="row"><label for="b2">2 · Fund it</label><code id="b2">Buy SOL on an exchange, send it to your wallet address.</code><span></span></div>
+          <div class="row"><label for="b2">2 · Fund it</label><code id="b2">Buy SOL on an exchange and send it to your wallet. The swap routes through NVDAx for you.</code><span></span></div>
           <div class="row"><label for="b3">3 · Copy the CA</label><code id="b3" data-ca>Contract address posts here at launch.</code><button type="button" class="btn ghost" data-copy="b3" id="ca-copy" disabled>Copy</button></div>
-          <div class="row"><label for="b4">4 · Swap</label><code id="b4">Paste the CA into Jupiter (jup.ag) and swap SOL for $ASIMOV.</code><a class="btn ghost" id="jup" href="https://jup.ag/" target="_blank" rel="noopener">Jupiter</a></div>
+          <div class="row"><label for="b4">4 · Swap</label><code id="b4">Swap on StonkFun, or paste the CA into Jupiter (jup.ag).</code><a class="btn ghost" id="jup" href="https://jup.ag/" target="_blank" rel="noopener">Jupiter</a></div>
         </div>
         <div class="socials" id="socials"></div>
       </form>
@@ -190,7 +190,7 @@
 
 <footer>
   <div class="wrap">
-    <span>$ASIMOV is a meme token with no intrinsic value or expectation of return. Not financial advice; tokens can go to zero. Not affiliated with NVIDIA Corporation, Backed Finance, the estate of Isaac Asimov, or Asimov's Science Fiction magazine. NVIDIA and Isaac are trademarks of NVIDIA Corporation.</span>
+    <span>$ASIMOV is a meme token with no intrinsic value or expectation of return. Not financial advice; tokens can go to zero. Not affiliated with NVIDIA Corporation, Backed Finance, StonkFun, the estate of Isaac Asimov, or Asimov's Science Fiction magazine. NVIDIA and Isaac are trademarks of NVIDIA Corporation.</span>
   </div>
 </footer>
 
@@ -199,6 +199,7 @@
   <div class="inner" id="contents-inner"></div>
 </dialog>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="cover-paint.js"></script>
 <script>
 (function(){
@@ -209,7 +210,8 @@
     ca: '',            // $ASIMOV mint address on Solana
     x: '',             // https://x.com/...
     telegram: '',      // https://t.me/...
-    dexscreener: ''    // https://dexscreener.com/solana/...
+    dexscreener: '',   // https://dexscreener.com/solana/...
+    stonkfun: ''       // the $ASIMOV page on StonkFun
   };
   var NVDAX_MINT = 'Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh';
   var AFFILIATE = { amazonTag: '' };  // Amazon Associates tag, e.g. 'yourname-20'. Add a disclosure line when set.
@@ -224,7 +226,7 @@
     document.getElementById('jup').href = 'https://jup.ag/swap/SOL-' + enc(TOKEN.ca);
     document.querySelector('.price span').textContent = 'CA: ' + TOKEN.ca.slice(0,4) + '…' + TOKEN.ca.slice(-4);
   }
-  var soc = [['X', TOKEN.x], ['Telegram', TOKEN.telegram], ['Chart', TOKEN.dexscreener]].filter(function(s){ return s[1]; });
+  var soc = [['StonkFun', TOKEN.stonkfun], ['X', TOKEN.x], ['Telegram', TOKEN.telegram], ['Chart', TOKEN.dexscreener]].filter(function(s){ return s[1]; });
   document.getElementById('socials').innerHTML = soc.length
     ? soc.map(function(s){ return '<a class="btn ghost" href="' + esc(s[1]) + '" target="_blank" rel="noopener">' + s[0] + '</a>'; }).join('')
     : '<p class="fine">Official links post here at launch. Anything posted elsewhere first is not us.</p>';
@@ -355,10 +357,8 @@
   function radius(){ var w = obs[0].getBoundingClientRect().width || 150; return Math.round((w / 2) / Math.tan(Math.PI / N)) + 24; }
   function layout(){ ring.style.setProperty('--rz', radius() + 'px'); apply(); }
   function front(){ return ((Math.round(-rot / STEP) % N) + N) % N; }
-  function apply(){
-    ring.style.transform = 'translateZ(' + (-radius()) + 'px) rotateY(' + rot + 'deg)';
-    var f = front(), b = ASIMOV[f];
-    obs.forEach(function(o, k){ o.classList.toggle('front', k === f); o.setAttribute('aria-hidden', k !== f); });
+  function plate(f){
+    var b = ASIMOV[f];
     document.getElementById('ob-title').textContent = b[0];
     document.getElementById('ob-meta').textContent = b[1] + ' · ' + b[2];
     var amz = 'https://www.amazon.com/s?k=' + enc(q(b)) + '&i=stripbooks' + (AFFILIATE.amazonTag ? '&tag=' + enc(AFFILIATE.amazonTag) : '');
@@ -367,16 +367,24 @@
       '<a href="' + amz + '" target="_blank" rel="noopener' + (AFFILIATE.amazonTag ? ' sponsored' : '') + '">Buy · Amazon</a>' +
       '<a href="https://openlibrary.org/search?q=' + enc(b[0]) + '&author=Isaac+Asimov" target="_blank" rel="noopener">Borrow · Open Library</a>';
   }
+  function apply(){
+    ring.style.transform = 'translateZ(' + (-radius()) + 'px) rotateY(' + rot + 'deg)';
+    var f = front();
+    obs.forEach(function(o, k){ o.classList.toggle('front', k === f); o.setAttribute('aria-hidden', k !== f); });
+    plate(f);
+  }
   function turn(d){ rot -= d * STEP; apply(); }
-  document.getElementById('spin-prev').onclick = function(){ turn(-1); };
-  document.getElementById('spin-next').onclick = function(){ turn(1); };
-  sw.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){e.preventDefault();turn(1)} if(e.key==='ArrowLeft'){e.preventDefault();turn(-1)} });
+  // The 3D shelf (three-scenes.js) replaces .turn when WebGL is available; the buttons always go through here.
+  var Shelf = window.AsimovShelf = { books: ASIMOV, plate: plate, turn: turn, mode: 'css' };
+  document.getElementById('spin-prev').onclick = function(){ Shelf.turn(-1); };
+  document.getElementById('spin-next').onclick = function(){ Shelf.turn(1); };
+  sw.addEventListener('keydown', function(e){ if(e.key==='ArrowRight'){e.preventDefault();Shelf.turn(1)} if(e.key==='ArrowLeft'){e.preventDefault();Shelf.turn(-1)} });
   var x0 = null, r0 = 0, moved = false, idle = 0;
   ring.addEventListener('click', function(e){ var o = e.target.closest('.ob'); if(o && !moved){ var k=+o.dataset.k, d=((k-front())%N+N)%N; if(d>N/2)d-=N; turn(d); } });
-  sw.addEventListener('pointerdown', function(e){ x0 = e.clientX; r0 = rot; moved = false; ring.classList.add('dragging'); });
+  sw.addEventListener('pointerdown', function(e){ if(Shelf.mode!=='css')return; x0 = e.clientX; r0 = rot; moved = false; ring.classList.add('dragging'); });
   addEventListener('pointermove', function(e){ if(x0===null)return; var dx = e.clientX - x0; if(Math.abs(dx)>4)moved = true; rot = r0 + dx * 0.35; apply(); });
   addEventListener('pointerup', function(){ if(x0===null)return; x0 = null; ring.classList.remove('dragging'); rot = Math.round(rot / STEP) * STEP; apply(); idle = 0; });
-  if(!reduce) setInterval(function(){ if(document.hidden || x0!==null || sw.matches(':hover') || sw.contains(document.activeElement)) { idle = 0; return; } if(++idle >= 4){ turn(1); idle = 0; } }, 1000);
+  if(!reduce) setInterval(function(){ if(Shelf.mode!=='css') return; if(document.hidden || x0!==null || sw.matches(':hover') || sw.contains(document.activeElement)) { idle = 0; return; } if(++idle >= 4){ turn(1); idle = 0; } }, 1000);
 
   function cacheGet(k){ try { return localStorage.getItem(k); } catch(e){ return null; } }
   function cacheSet(k,v){ try { localStorage.setItem(k, v); } catch(e){} }
@@ -387,6 +395,7 @@
     img.src = 'https://covers.openlibrary.org/b/id/' + id + '-M.jpg';
   }
   function loadCovers(){
+    if(Shelf.mode!=='css') return;  // the 3D shelf loads its own covers
     var queue = obs.slice();
     function next(){
       var o = queue.shift(); if(!o) return;
@@ -403,7 +412,7 @@
 
   barcodes();
   if(window.CoverPaint) CoverPaint.paintAll();
-  layout(); addEventListener('resize', layout);
+  layout(); addEventListener('resize', function(){ if(Shelf.mode==='css') layout(); });
   if('IntersectionObserver' in window){
     var once = new IntersectionObserver(function(es){ if(es[0].isIntersecting){ once.disconnect(); loadCovers(); } }, { rootMargin: '400px' });
     once.observe(sw);
@@ -416,5 +425,6 @@
   }
 })();
 </script>
+<script src="three-scenes.js"></script>
 </body>
 </html>
