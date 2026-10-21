@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>One registry. Every bot. — 1,074 tools · 1,633 workflows · 1,356 n8n exports · 270 curated skills over a 3,022 catalogue · 16 frameworks</title>
+<meta name="generator" content="shaddai-diagrams">
+<meta name="description" content="1,074 tools · 1,633 workflows · 1,356 n8n exports · 270 curated skills over a 3,022 catalogue · 16 frameworks">
+<style>
+:root{
+  --bg:#070a0e; --panel:#0b1117; --line:rgba(126,158,142,.20); --line-2:rgba(126,158,142,.36);
+  --ink:#e8f0ea; --muted:#8fa39a; --accent:#00e5a0; --accent-ink:#04120c;
+  --node:#0f1720; --node-line:rgba(126,158,142,.34); --edge:rgba(190,215,205,.72);
+  --region:rgba(255,255,255,.028);
+  --k-client:#7dd3fc; --k-frontend:#38bdf8; --k-backend:#a78bfa; --k-service:#00e5a0;
+  --k-agent:#fbbf24; --k-database:#f472b6; --k-store:#fb7185; --k-queue:#c084fc;
+  --k-cloud:#94a3b8; --k-security:#f87171; --k-messagebus:#22d3ee; --k-external:#64748b;
+  --k-tool:#facc15; --k-other:#94a3b8; --k-start:#00e5a0; --k-task:#00e5a0;
+  --k-decision:#fbbf24; --k-gate:#f87171; --k-retry:#facc15; --k-end:#00e5a0;
+  --font:'Rajdhani','Inter',system-ui,-apple-system,sans-serif;
+  --mono:'Share Tech Mono',ui-monospace,'Cascadia Mono',monospace;
+}
+html[data-theme=light]{
+  --bg:#f4f7f6; --panel:#ffffff; --line:rgba(20,50,40,.16); --line-2:rgba(20,50,40,.34);
+  --ink:#0d1a15; --muted:#5b6f66; --node:#ffffff; --node-line:rgba(20,50,40,.28);
+  --edge:rgba(20,50,40,.70); --region:rgba(10,40,30,.035);
+  --k-client:#0369a1; --k-frontend:#0369a1; --k-backend:#6d28d9; --k-service:#047857;
+  --k-agent:#a16207; --k-database:#be185d; --k-store:#be123c; --k-queue:#7e22ce;
+  --k-cloud:#475569; --k-security:#b91c1c; --k-messagebus:#0e7490; --k-external:#64748b;
+  --k-tool:#a16207; --k-other:#475569; --k-start:#047857; --k-task:#047857;
+  --k-decision:#a16207; --k-gate:#b91c1c; --k-retry:#a16207; --k-end:#047857;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--font);
+  background-image:radial-gradient(circle at 15% 0%,rgba(0,229,160,.06),transparent 46%),
+                   radial-gradient(circle at 90% 100%,rgba(56,189,248,.05),transparent 45%);}
+.wrap{max-width:1680px;margin:0 auto;padding:26px 30px 60px}
+header{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;
+  padding-bottom:16px;border-bottom:1px solid var(--line);margin-bottom:8px}
+h1{margin:0;font-size:27px;letter-spacing:.02em;font-weight:700}
+h1 em{font-style:normal;color:var(--accent)}
+.sub{margin:5px 0 0;color:var(--muted);font-size:14px;max-width:74ch}
+.badges{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--panel);font:600 10.5px/1 var(--mono);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.badge.ok{color:var(--accent);border-color:color-mix(in srgb,var(--accent) 45%,transparent)}
+.badge b{font-weight:700;color:var(--ink)}
+.src{font:11px/1 var(--mono);color:var(--muted);margin-top:10px;word-break:break-all}
+.src a{color:var(--accent);text-decoration:none}
+.src a:hover{text-decoration:underline}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:16px 0 12px}
+button{font:600 11px/1 var(--font);letter-spacing:.1em;text-transform:uppercase;cursor:pointer;
+  min-height:32px;padding:0 13px;border-radius:8px;border:1px solid var(--line-2);
+  background:var(--panel);color:var(--ink);transition:.15s}
+button:hover{border-color:var(--accent);color:var(--accent)}
+button.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 14px;padding:0;list-style:none}
+.legend li{display:flex;align-items:center;gap:7px;font:600 11px/1 var(--mono);
+  letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.legend i{width:11px;height:11px;border-radius:3px;background:var(--c);box-shadow:0 0 0 1px var(--node-line)}
+.stage{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:16px;
+  padding:18px;overflow:auto;background-image:linear-gradient(var(--line) 1px,transparent 1px),
+  linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;
+  background-position:-1px -1px}
+.stage::before{content:"";position:absolute;inset:0;background:var(--panel);opacity:.86;pointer-events:none}
+.stage>*{position:relative}
+.dg-svg{display:block;margin:0 auto;max-width:none;height:auto;overflow:visible}
+footer{margin-top:16px;font:11px/1.6 var(--mono);color:var(--muted);display:flex;gap:18px;flex-wrap:wrap}
+hint{display:block;color:var(--muted);font-size:11.5px}
+
+/* --- nodes --- */
+.nd-inner>.box{fill:var(--node);stroke:var(--node-line);stroke-width:1.4}
+.node{cursor:pointer;transition:opacity .16s}
+.node:hover .nd-inner>.box{stroke:var(--accent);stroke-width:1.9}
+.nd-bar{fill:var(--k-other);stroke:none}
+.node[data-kind=client] .nd-bar,.node[data-kind=frontend] .nd-bar{fill:var(--k-frontend)}
+.node[data-kind=backend] .nd-bar,.node[data-kind=service] .nd-bar{fill:var(--k-service)}
+.node[data-kind=agent] .nd-bar{fill:var(--k-agent)}
+.node[data-kind=database] .nd-bar,.node[data-kind=store] .nd-bar{fill:var(--k-database)}
+.node[data-kind=queue] .nd-bar,.node[data-kind=messagebus] .nd-bar{fill:var(--k-messagebus)}
+.node[data-kind=cloud] .nd-bar,.node[data-kind=external] .nd-bar{fill:var(--k-cloud)}
+.node[data-kind=security] .nd-bar,.node[data-kind=gate] .nd-bar{fill:var(--k-security)}
+.node[data-kind=tool] .nd-bar,.node[data-kind=retry] .nd-bar{fill:var(--k-tool)}
+.node[data-kind=start] .nd-bar,.node[data-kind=end] .nd-bar,.node[data-kind=task] .nd-bar{fill:var(--k-start)}
+.node[data-kind=decision] .nd-bar{fill:var(--k-decision)}
+.node[data-kind=client] .nd-inner>.box,.node[data-kind=client] .nd-inner>.box{stroke:var(--k-client)}
+.node[data-kind=frontend] .nd-inner>.box,.node[data-kind=frontend] .nd-inner>.box{stroke:var(--k-frontend)}
+.node[data-kind=backend] .nd-inner>.box,.node[data-kind=backend] .nd-inner>.box{stroke:var(--k-backend)}
+.node[data-kind=agent] .nd-inner>.box,.node[data-kind=agent] .nd-inner>.box{stroke:var(--k-agent)}
+.node[data-kind=database] .nd-inner>.box,.node[data-kind=database] .nd-inner>.box{stroke:var(--k-database)}
+.node[data-kind=store] .nd-inner>.box,.node[data-kind=store] .nd-inner>.box{stroke:var(--k-store)}
+.node[data-kind=queue] .nd-inner>.box,.node[data-kind=queue] .nd-inner>.box{stroke:var(--k-queue)}
+.node[data-kind=messagebus] .nd-inner>.box,.node[data-kind=messagebus] .nd-inner>.box{stroke:var(--k-messagebus)}
+.node[data-kind=security] .nd-inner>.box,.node[data-kind=security] .nd-inner>.box{stroke:var(--k-security)}
+.node[data-kind=cloud] .nd-inner>.box,.node[data-kind=cloud] .nd-inner>.box{stroke:var(--k-cloud)}
+.node[data-kind=external] .nd-inner>.box,.node[data-kind=external] .nd-inner>.box{stroke:var(--k-external)}
+.node[data-kind=tool] .nd-inner>.box,.node[data-kind=tool] .nd-inner>.box{stroke:var(--k-tool)}
+.node[data-kind=start] .nd-inner>.box,.node[data-kind=end] .nd-inner>.box{stroke:var(--k-start);stroke-width:1.8}
+.node[data-kind=decision] .nd-inner>.box{stroke:var(--k-decision);stroke-width:1.8}
+.node[data-kind=gate] .nd-inner>.box{stroke:var(--k-gate);stroke-width:1.8}
+.node[data-kind=retry] .nd-inner>.box{stroke:var(--k-retry);stroke-dasharray:5 3}
+.nd-label{fill:var(--ink);font:600 13px/1 var(--font);letter-spacing:.005em;dominant-baseline:middle}
+.nd-sub{fill:var(--muted);font:400 11px/1 var(--font);dominant-baseline:middle}
+.nd-chip{fill:var(--muted);font:600 9.5px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;
+  text-anchor:end;opacity:.7;dominant-baseline:middle}
+.node.sel .nd-inner>.box,.node.sel .nd-inner>.box{stroke:var(--accent);stroke-width:2.4}
+.node.sel .nd-inner{filter:drop-shadow(0 0 12px color-mix(in srgb,var(--accent) 55%,transparent))}
+
+/* --- regions, links --- */
+.region-box{fill:var(--region);stroke:var(--line-2);stroke-width:1.3;stroke-dasharray:7 6}
+.region-text{fill:var(--muted);font:600 10.5px/1 var(--mono);letter-spacing:.11em;text-transform:uppercase}
+.region-label rect{fill:var(--panel);stroke:var(--line-2);stroke-width:1}
+.lk-path{stroke:var(--edge);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.lk-halo{stroke:var(--panel);stroke-width:5.4;opacity:.9}
+.link[data-kind=error] .lk-path{stroke:#f87171}
+.link[data-kind=auth] .lk-path{stroke:#fbbf24}
+.link[data-kind=data] .lk-path,.link[data-kind=async] .lk-path{stroke:#38bdf8}
+.link[data-kind=no] .lk-path{stroke:#fb7185}
+.link[data-kind=yes] .lk-path{stroke:#00e5a0}
+.link[data-kind=return] .lk-path{stroke:var(--muted)}
+.lk-label rect{fill:var(--panel);stroke:var(--line);stroke-width:1;rx:9.5}
+.lk-text{fill:var(--ink);font:600 11px/1 var(--font);text-anchor:middle;dominant-baseline:middle}
+.lk-note{fill:var(--muted);font:400 10.5px/1 var(--font);text-anchor:middle}
+.lifeline{stroke:var(--line-2);stroke-width:1.3;stroke-dasharray:5 6}
+.arrow-head{fill:var(--edge)}
+.link[data-kind=error] .arrow-head{fill:#f87171}
+.link[data-kind=auth] .arrow-head{fill:#fbbf24}
+.link[data-kind=data] .arrow-head,.link[data-kind=async] .arrow-head{fill:#38bdf8}
+.link[data-kind=no] .arrow-head{fill:#fb7185}
+.link[data-kind=yes] .arrow-head{fill:#00e5a0}
+
+/* --- reach trace --- */
+.stage.trace .node:not(.keep){opacity:.14}
+.stage.trace .link:not(.keep){opacity:.1}
+.stage.trace .region{opacity:.25}
+.hint{position:sticky;bottom:0;margin-top:12px;font:11px/1.6 var(--mono);color:var(--muted)}
+@media print{body{background:#fff}.bar{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1>One registry. Every bot.</h1>
+      <p class="sub">1,074 tools · 1,633 workflows · 1,356 n8n exports · 270 curated skills over a 3,022 catalogue · 16 frameworks</p>
+      <div class="src">source · <b>IzzoSol/Shaddai-Beta</b> @ <a href="https://github.com/IzzoSol/Shaddai-Beta/tree/master" target="_blank" rel="noopener">master</a> — shaddai-mcp/mcp-unified.js + backend/routes/headless-routes.js — live, measured 2026-10-21</div>
+    </div>
+    <div class="badges">
+      <span class="badge">architecture</span>
+      <span class="badge">quality <b>showcase</b></span>
+      <span class="badge">16 nodes</span>
+      <span class="badge">17 edges</span>
+      <span class="badge ok">✓ finalized 2026-10-21 17:43 UTC</span>
+    </div>
+  </header>
+
+  <div class="bar">
+    <button id="themeBtn">Light</button>
+    <button id="fitBtn">Fit width</button>
+    <button id="dlBtn">Download SVG</button>
+    <button data-trace>Reset trace</button>
+    <span class="hint">click any node to trace its immediate reach · Esc resets</span>
+  </div>
+
+  <ul class="legend"><li><i style="--c:var(--k-client)"></i>Caller</li><li><i style="--c:var(--k-other)"></i>Absorbed</li><li><i style="--c:var(--k-service)"></i>Registry</li><li><i style="--c:var(--k-tool)"></i>Tools &amp; flows</li><li><i style="--c:var(--k-store)"></i>Portable asset</li><li><i style="--c:var(--k-database)"></i>Grounding</li><li><i style="--c:var(--k-external)"></i>Money rail</li></ul>
+
+  <div class="stage" id="stage"><svg class="dg-svg" viewBox="0 0 2082 1354" width="2082" height="1354"
+  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="One registry. Every bot."
+  data-type="architecture" data-direction="lr"><defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 1 L 9 5 L 0 9 z" class="arrow-head"/>
+      </marker>
+    </defs><g transform="translate(56 56)"><g class="region" data-region="b_registry">
+    <rect x="422" y="748" width="1152" height="494" rx="16" class="region-box"/>
+    <g class="region-label"><rect x="436" y="738" width="244" height="21" rx="10.5"/>
+    <text x="447" y="752.5" class="region-text">shaddai-mcp — the one registry</text></g>
+  </g><g class="region" data-region="b_assets">
+    <rect x="1214" y="756" width="756" height="371" rx="16" class="region-box"/>
+    <g class="region-label"><rect x="1228" y="746" width="133" height="21" rx="10.5"/>
+    <text x="1239" y="760.5" class="region-text">Portable assets</text></g>
+  </g><g class="region" data-region="b_money">
+    <rect x="1214" y="879" width="648" height="356" rx="16" class="region-box"/>
+    <g class="region-label"><rect x="1228" y="869" width="125.60000000000001" height="21" rx="10.5"/>
+    <text x="1239" y="883.5" class="region-text">Charging rails</text></g>
+  </g><g class="link" data-from="mcp_clients" data-to="registry">
+    <path d="M 356 882.5 C 402 882.5, 406 998.5, 452 998.5" class="lk-halo" fill="none"/>
+    <path d="M 356 882.5 C 402 882.5, 406 998.5, 452 998.5" class="lk-path" data-kind="sync" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="372.6" y="931" width="62.8" height="19" rx="9.5"/>
+       <text x="404" y="944.5" class="lk-text">JSON-RPC</text></g></g><g class="link" data-from="rest_clients" data-to="registry">
+    <path d="M 356 1005.5 C 402 1005.5, 406 998.5, 452 998.5" class="lk-halo" fill="none"/>
+    <path d="M 356 1005.5 C 402 1005.5, 406 998.5, 452 998.5" class="lk-path" data-kind="sync" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="334.5" y="992" width="139" height="19" rx="9.5"/>
+       <text x="404" y="1005.5" class="lk-text">HTTP /api/headless/*</text></g></g><g class="link" data-from="t_extracted" data-to="registry">
+    <path d="M 350 1121 C 396 1121, 406 998.5, 452 998.5" class="lk-halo" fill="none"/>
+    <path d="M 350 1121 C 396 1121, 406 998.5, 452 998.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="341.025" y="1050" width="119.94999999999999" height="19" rx="9.5"/>
+       <text x="401" y="1063.5" class="lk-text">absorbed as tools</text></g></g><g class="link" data-from="registry" data-to="t_backend">
+    <path d="M 752 998.5 C 798 998.5, 802 828.5, 848 828.5" class="lk-halo" fill="none"/>
+    <path d="M 752 998.5 C 798 998.5, 802 828.5, 848 828.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="768.6" y="904" width="62.8" height="19" rx="9.5"/>
+       <text x="800" y="917.5" class="lk-text">registry</text></g></g><g class="link" data-from="registry" data-to="t_creative">
+    <path d="M 752 998.5 C 798 998.5, 802 944, 848 944" class="lk-halo" fill="none"/>
+    <path d="M 752 998.5 C 798 998.5, 802 944, 848 944" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/></g><g class="link" data-from="registry" data-to="t_skills">
+    <path d="M 752 998.5 C 798 998.5, 802 1059.5, 848 1059.5" class="lk-halo" fill="none"/>
+    <path d="M 752 998.5 C 798 998.5, 802 1059.5, 848 1059.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/></g><g class="link" data-from="registry" data-to="t_knowledge">
+    <path d="M 752 998.5 C 798 998.5, 802 1175, 848 1175" class="lk-halo" fill="none"/>
+    <path d="M 752 998.5 C 798 998.5, 802 1175, 848 1175" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/></g><g class="link" data-from="t_backend" data-to="wf">
+    <path d="M 1148 828.5 C 1194 828.5, 1198 944.5, 1244 944.5" class="lk-halo" fill="none"/>
+    <path d="M 1148 828.5 C 1194 828.5, 1198 944.5, 1244 944.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1139.2" y="877" width="113.6" height="19" rx="9.5"/>
+       <text x="1196" y="890.5" class="lk-text">built from tools</text></g></g><g class="link" data-from="t_skills" data-to="wf">
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 944.5, 1244 944.5" class="lk-halo" fill="none"/>
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 944.5, 1244 944.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/></g><g class="link" data-from="t_knowledge" data-to="wf">
+    <path d="M 1130 1175 C 1181.3 1175, 1192.7 944.5, 1244 944.5" class="lk-halo" fill="none"/>
+    <path d="M 1130 1175 C 1181.3 1175, 1192.7 944.5, 1244 944.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/></g><g class="link" data-from="t_backend" data-to="brain">
+    <path d="M 1148 828.5 C 1194 828.5, 1198 829, 1244 829" class="lk-halo" fill="none"/>
+    <path d="M 1148 828.5 C 1194 828.5, 1198 829, 1244 829" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1126.5" y="819" width="139" height="19" rx="9.5"/>
+       <text x="1196" y="832.5" class="lk-text">rag_search / rag_ask</text></g></g><g class="link" data-from="t_skills" data-to="catalog">
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 1060, 1244 1060" class="lk-halo" fill="none"/>
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 1060, 1244 1060" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1151.9" y="1050" width="88.19999999999999" height="19" rx="9.5"/>
+       <text x="1196" y="1063.5" class="lk-text">3,022 skills</text></g></g><g class="link" data-from="t_skills" data-to="mastery">
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 1168, 1244 1168" class="lk-halo" fill="none"/>
+    <path d="M 1148 1059.5 C 1194 1059.5, 1198 1168, 1244 1168" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1155.075" y="1104" width="81.85" height="19" rx="9.5"/>
+       <text x="1196" y="1117.5" class="lk-text">75% royalty</text></g></g><g class="link" data-from="wf" data-to="n8n">
+    <path d="M 1544 944.5 C 1590 944.5, 1594 836.5, 1640 836.5" class="lk-halo" fill="none"/>
+    <path d="M 1544 944.5 C 1590 944.5, 1594 836.5, 1640 836.5" class="lk-path" data-kind="data" fill="none" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1566.95" y="881" width="50.099999999999994" height="19" rx="9.5"/>
+       <text x="1592" y="894.5" class="lk-text">export</text></g></g><g class="link" data-from="wf" data-to="x402">
+    <path d="M 1544 944.5 C 1590 944.5, 1594 952, 1640 952" class="lk-halo" fill="none"/>
+    <path d="M 1544 944.5 C 1590 944.5, 1594 952, 1640 952" class="lk-path" data-kind="auth" fill="none" stroke-dasharray="2 4" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1557.425" y="938" width="69.15" height="19" rx="9.5"/>
+       <text x="1592" y="951.5" class="lk-text">402 quote</text></g></g><g class="link" data-from="wf" data-to="paybox">
+    <path d="M 1544 944.5 C 1590 944.5, 1594 1060, 1640 1060" class="lk-halo" fill="none"/>
+    <path d="M 1544 944.5 C 1590 944.5, 1594 1060, 1640 1060" class="lk-path" data-kind="auth" fill="none" stroke-dasharray="2 4" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1566.95" y="992" width="50.099999999999994" height="19" rx="9.5"/>
+       <text x="1592" y="1005.5" class="lk-text">settle</text></g></g><g class="link" data-from="wf" data-to="gems">
+    <path d="M 1544 944.5 C 1590 944.5, 1594 1168, 1640 1168" class="lk-halo" fill="none"/>
+    <path d="M 1544 944.5 C 1590 944.5, 1594 1168, 1640 1168" class="lk-path" data-kind="optional" fill="none" stroke-dasharray="6 5" marker-end="url(#arrow)"/><g class="lk-label"><rect x="1566.95" y="1046" width="50.099999999999994" height="19" rx="9.5"/>
+       <text x="1592" y="1059.5" class="lk-text">credit</text></g></g><g class="node" id="n-mcp_clients" data-node="mcp_clients" data-kind="client"><clipPath id="clip-architecture-mcp_clients"><rect class="box" x="56" y="838" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="mcp_clients"><title>MCP clients — Claude Code · OpenCode · Cursor · any MCP host</title><g class="nd-inner"><rect class="box" x="56" y="838" width="300" height="89" rx="10"/><rect x="57" y="847" width="3" height="71" rx="1.5" class="nd-bar"/><text x="343" y="856" class="nd-chip">client</text><g class="nd-text" clip-path="url(#clip-architecture-mcp_clients)"><text x="78" y="869.5" class="nd-label">MCP clients</text><text x="78" y="890.5" class="nd-sub">Claude Code · OpenCode · Cursor · any</text><text x="78" y="905.5" class="nd-sub">MCP host</text></g></g></g></g><g class="node" id="n-rest_clients" data-node="rest_clients" data-kind="client"><clipPath id="clip-architecture-rest_clients"><rect class="box" x="56" y="961" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="rest_clients"><title>Headless REST — Grok · Muse · n8n · Telegram · curl · cron</title><g class="nd-inner"><rect class="box" x="56" y="961" width="300" height="89" rx="10"/><rect x="57" y="970" width="3" height="71" rx="1.5" class="nd-bar"/><text x="343" y="979" class="nd-chip">client</text><g class="nd-text" clip-path="url(#clip-architecture-rest_clients)"><text x="78" y="992.5" class="nd-label">Headless REST</text><text x="78" y="1013.5" class="nd-sub">Grok · Muse · n8n · Telegram · curl ·</text><text x="78" y="1028.5" class="nd-sub">cron</text></g></g></g></g><g class="node" id="n-t_extracted" data-node="t_extracted" data-kind="other"><clipPath id="clip-architecture-t_extracted"><rect class="box" x="56" y="1084" width="294" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="t_extracted"><title>9 repos extracted — every capability captured as an MCP tool</title><g class="nd-inner"><rect class="box" x="56" y="1084" width="294" height="74" rx="10"/><rect x="57" y="1093" width="3" height="56" rx="1.5" class="nd-bar"/><g class="nd-text" clip-path="url(#clip-architecture-t_extracted)"><text x="78" y="1115.5" class="nd-label">9 repos extracted</text><text x="78" y="1136.5" class="nd-sub">every capability captured as an MCP tool</text></g></g></g></g><g class="node" id="n-registry" data-node="registry" data-kind="service"><clipPath id="clip-architecture-registry"><rect class="box" x="452" y="954" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="registry"><title>shaddai-mcp — mcp-unified.js — one registry, 1,074 tools</title><g class="nd-inner"><rect class="box" x="452" y="954" width="300" height="89" rx="10"/><rect x="453" y="963" width="3" height="71" rx="1.5" class="nd-bar"/><text x="739" y="972" class="nd-chip">service</text><g class="nd-text" clip-path="url(#clip-architecture-registry)"><text x="474" y="985.5" class="nd-label">shaddai-mcp</text><text x="474" y="1006.5" class="nd-sub">mcp-unified.js — one registry, 1,074</text><text x="474" y="1021.5" class="nd-sub">tools</text></g></g></g></g><g class="node" id="n-t_backend" data-node="t_backend" data-kind="tool"><clipPath id="clip-architecture-t_backend"><rect class="box" x="848" y="784" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="t_backend"><title>554 backend tools — agent-engine.js · market, research, security, social</title><g class="nd-inner"><rect class="box" x="848" y="784" width="300" height="89" rx="10"/><rect x="849" y="793" width="3" height="71" rx="1.5" class="nd-bar"/><text x="1135" y="802" class="nd-chip">tool</text><g class="nd-text" clip-path="url(#clip-architecture-t_backend)"><text x="870" y="815.5" class="nd-label">554 backend tools</text><text x="870" y="836.5" class="nd-sub">agent-engine.js · market, research,</text><text x="870" y="851.5" class="nd-sub">security, social</text></g></g></g></g><g class="node" id="n-t_creative" data-node="t_creative" data-kind="tool"><clipPath id="clip-architecture-t_creative"><rect class="box" x="848" y="907" width="246" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="t_creative"><title>125 creative tools — image, video, design, motion, 3D</title><g class="nd-inner"><rect class="box" x="848" y="907" width="246" height="74" rx="10"/><rect x="849" y="916" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1081" y="925" class="nd-chip">tool</text><g class="nd-text" clip-path="url(#clip-architecture-t_creative)"><text x="870" y="938.5" class="nd-label">125 creative tools</text><text x="870" y="959.5" class="nd-sub">image, video, design, motion, 3D</text></g></g></g></g><g class="node" id="n-t_skills" data-node="t_skills" data-kind="tool"><clipPath id="clip-architecture-t_skills"><rect class="box" x="848" y="1015" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="t_skills"><title>276 skill tools — 270 curated playbooks + 6 catalogue managers</title><g class="nd-inner"><rect class="box" x="848" y="1015" width="300" height="89" rx="10"/><rect x="849" y="1024" width="3" height="71" rx="1.5" class="nd-bar"/><text x="1135" y="1033" class="nd-chip">tool</text><g class="nd-text" clip-path="url(#clip-architecture-t_skills)"><text x="870" y="1046.5" class="nd-label">276 skill tools</text><text x="870" y="1067.5" class="nd-sub">270 curated playbooks + 6 catalogue</text><text x="870" y="1082.5" class="nd-sub">managers</text></g></g></g></g><g class="node" id="n-t_knowledge" data-node="t_knowledge" data-kind="tool"><clipPath id="clip-architecture-t_knowledge"><rect class="box" x="848" y="1138" width="282" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="t_knowledge"><title>16 knowledge frameworks — story · thinking · dreamers · creative</title><g class="nd-inner"><rect class="box" x="848" y="1138" width="282" height="74" rx="10"/><rect x="849" y="1147" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1117" y="1156" class="nd-chip">tool</text><g class="nd-text" clip-path="url(#clip-architecture-t_knowledge)"><text x="870" y="1169.5" class="nd-label">16 knowledge frameworks</text><text x="870" y="1190.5" class="nd-sub">story · thinking · dreamers · creative</text></g></g></g></g><g class="node" id="n-brain" data-node="brain" data-kind="database"><clipPath id="clip-architecture-brain"><rect class="box" x="1244" y="792" width="294" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="brain"><title>RAG brain — 7 agent KBs · 91k chunks · cited answers</title><g class="nd-inner"><rect class="box" x="1244" y="792" width="294" height="74" rx="10"/><rect x="1245" y="801" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1525" y="810" class="nd-chip">database</text><g class="nd-text" clip-path="url(#clip-architecture-brain)"><text x="1266" y="823.5" class="nd-label">RAG brain</text><text x="1266" y="844.5" class="nd-sub">7 agent KBs · 91k chunks · cited answers</text></g></g></g></g><g class="node" id="n-wf" data-node="wf" data-kind="tool"><clipPath id="clip-architecture-wf"><rect class="box" x="1244" y="900" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="wf"><title>1,633 workflows — 609 tool- · 554 combo- · 270 skill- · 74 uc- · 21 stacks · 114 pipelines</title><g class="nd-inner"><rect class="box" x="1244" y="900" width="300" height="89" rx="10"/><rect x="1245" y="909" width="3" height="71" rx="1.5" class="nd-bar"/><text x="1531" y="918" class="nd-chip">tool</text><g class="nd-text" clip-path="url(#clip-architecture-wf)"><text x="1266" y="931.5" class="nd-label">1,633 workflows</text><text x="1266" y="952.5" class="nd-sub">609 tool- · 554 combo- · 270 skill- · 74</text><text x="1266" y="967.5" class="nd-sub">uc- · 21 stacks · 114 pipelines</text></g></g></g></g><g class="node" id="n-catalog" data-node="catalog" data-kind="store"><clipPath id="clip-architecture-catalog"><rect class="box" x="1244" y="1023" width="216" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="catalog"><title>3,022-skill catalogue — search or recommend by task</title><g class="nd-inner"><rect class="box" x="1244" y="1023" width="216" height="74" rx="10"/><rect x="1245" y="1032" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1447" y="1041" class="nd-chip">store</text><g class="nd-text" clip-path="url(#clip-architecture-catalog)"><text x="1266" y="1054.5" class="nd-label">3,022-skill catalogue</text><text x="1266" y="1075.5" class="nd-sub">search or recommend by task</text></g></g></g></g><g class="node" id="n-mastery" data-node="mastery" data-kind="external"><clipPath id="clip-architecture-mastery"><rect class="box" x="1244" y="1131" width="178" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="mastery"><title>Mastery packs — 75% creator royalty</title><g class="nd-inner"><rect class="box" x="1244" y="1131" width="178" height="74" rx="10"/><rect x="1245" y="1140" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1409" y="1149" class="nd-chip">external</text><g class="nd-text" clip-path="url(#clip-architecture-mastery)"><text x="1266" y="1162.5" class="nd-label">Mastery packs</text><text x="1266" y="1183.5" class="nd-sub">75% creator royalty</text></g></g></g></g><g class="node" id="n-n8n" data-node="n8n" data-kind="store"><clipPath id="clip-architecture-n8n"><rect class="box" x="1640" y="792" width="300" height="89" rx="10"/></clipPath><g class="nd-hit" data-node="n8n"><title>1,356 n8n exports — one JSON per tool — all 270 skills included</title><g class="nd-inner"><rect class="box" x="1640" y="792" width="300" height="89" rx="10"/><rect x="1641" y="801" width="3" height="71" rx="1.5" class="nd-bar"/><text x="1927" y="810" class="nd-chip">store</text><g class="nd-text" clip-path="url(#clip-architecture-n8n)"><text x="1662" y="823.5" class="nd-label">1,356 n8n exports</text><text x="1662" y="844.5" class="nd-sub">one JSON per tool — all 270 skills</text><text x="1662" y="859.5" class="nd-sub">included</text></g></g></g></g><g class="node" id="n-x402" data-node="x402" data-kind="external"><clipPath id="clip-architecture-x402"><rect class="box" x="1640" y="915" width="192" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="x402"><title>x402 — per-call USDC on Solana</title><g class="nd-inner"><rect class="box" x="1640" y="915" width="192" height="74" rx="10"/><rect x="1641" y="924" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1819" y="933" class="nd-chip">external</text><g class="nd-text" clip-path="url(#clip-architecture-x402)"><text x="1662" y="946.5" class="nd-label">x402</text><text x="1662" y="967.5" class="nd-sub">per-call USDC on Solana</text></g></g></g></g><g class="node" id="n-paybox" data-node="paybox" data-kind="external"><clipPath id="clip-architecture-paybox"><rect class="box" x="1640" y="1023" width="178" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="paybox"><title>PayBox / ZEROX — platform take 15%</title><g class="nd-inner"><rect class="box" x="1640" y="1023" width="178" height="74" rx="10"/><rect x="1641" y="1032" width="3" height="56" rx="1.5" class="nd-bar"/><text x="1805" y="1041" class="nd-chip">external</text><g class="nd-text" clip-path="url(#clip-architecture-paybox)"><text x="1662" y="1054.5" class="nd-label">PayBox / ZEROX</text><text x="1662" y="1075.5" class="nd-sub">platform take 15%</text></g></g></g></g><g class="node" id="n-gems" data-node="gems" data-kind="other"><clipPath id="clip-architecture-gems"><rect class="box" x="1640" y="1131" width="178" height="74" rx="10"/></clipPath><g class="nd-hit" data-node="gems"><title>Gem economy — community credit</title><g class="nd-inner"><rect class="box" x="1640" y="1131" width="178" height="74" rx="10"/><rect x="1641" y="1140" width="3" height="56" rx="1.5" class="nd-bar"/><g class="nd-text" clip-path="url(#clip-architecture-gems)"><text x="1662" y="1162.5" class="nd-label">Gem economy</text><text x="1662" y="1183.5" class="nd-sub">community credit</text></g></g></g></g></g></svg></div>
+
+  <footer>
+    <span>shaddai-diagrams · architecture · 2082×1354px</span>
+    <span>schema v1 · showcase profile</span>
+    <span>3 region(s)</span>
+  </footer>
+</div>
+<script>
+(function(){
+  var svg=document.querySelector('.dg-svg'), stage=document.getElementById('stage');
+  if(!svg) return;
+  var adj={};
+  svg.querySelectorAll('.link').forEach(function(l){
+    var a=l.dataset.from,b=l.dataset.to;
+    (adj[a]=adj[a]||[]).push(b); (adj[b]=adj[b]||[]).push(a);
+  });
+  var sel=null;
+  function clear(){
+    sel=null; stage.classList.remove('trace');
+    svg.querySelectorAll('.keep').forEach(function(e){e.classList.remove('keep')});
+    svg.querySelectorAll('.sel').forEach(function(e){e.classList.remove('sel')});
+    document.querySelectorAll('.bar .on[data-trace]').forEach(function(b){b.classList.remove('on')});
+  }
+  function trace(id){
+    var keep={}; keep[id]=1;
+    (adj[id]||[]).forEach(function(n){keep[n]=1});
+    svg.querySelectorAll('.keep,.sel').forEach(function(e){e.classList.remove('keep','sel')});
+    svg.querySelectorAll('[data-node],[data-from]').forEach(function(e){
+      var k=e.dataset.node||((keep[e.dataset.from]&&keep[e.dataset.to])?'t':null);
+      if(e.dataset.node!==undefined&&keep[e.dataset.node]) {e.classList.add('keep','sel');return;}
+      if(e.dataset.from!==undefined&&keep[e.dataset.from]&&keep[e.dataset.to]) e.classList.add('keep');
+    });
+    stage.classList.add('trace'); sel=id;
+    document.querySelectorAll('.bar [data-trace]').forEach(function(b){b.classList.add('on')});
+  }
+  svg.addEventListener('click',function(ev){
+    var hit=ev.target.closest('[data-node]');
+    if(hit){ var id=hit.dataset.node; if(sel===id) clear(); else trace(id); return; }
+    clear();
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') clear(); });
+  document.querySelectorAll('[data-trace]').forEach(function(b){b.addEventListener('click',clear)});
+  var t=document.getElementById('themeBtn');
+  if(t) t.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    document.documentElement.setAttribute('data-theme',cur);
+    t.textContent=cur==='light'?'Dark':'Light';
+  });
+  var f=document.getElementById('fitBtn');
+  if(f) f.addEventListener('click',function(){
+    svg.style.width=''; svg.style.maxWidth='none';
+    var w=stage.clientWidth-40, vb=svg.viewBox.baseVal.width;
+    svg.style.maxWidth=(w<vb?w:vb)+'px';
+    f.classList.toggle('on');
+  });
+  var d=document.getElementById('dlBtn');
+  if(d) d.addEventListener('click',function(){
+    var clone=svg.cloneNode(true);
+    clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
+    var src='<?xml version="1.0" encoding="UTF-8"?>\n'+new XMLSerializer().serializeToString(clone);
+    var a=document.createElement('a');
+    a.href=URL.createObjectURL(new Blob([src],{type:'image/svg+xml'}));
+    a.download=(document.title||'diagram').replace(/[^a-z0-9]+/gi,'-').toLowerCase()+'.svg';
+    a.click(); URL.revokeObjectURL(a.href);
+  });
+  var fit=document.getElementById('fitBtn'); if(fit) fit.click();
+})();
+</script>
+</body>
+</html>
