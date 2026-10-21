@@ -1,0 +1,68 @@
+{
+  "generator": "shaddai-diagrams",
+  "version": 1,
+  "type": "architecture",
+  "quality": "showcase",
+  "candidate": "portfolio/mcp-surface/mcp-surface.json",
+  "output": "portfolio/mcp-surface/mcp-surface.html",
+  "screenshot": "portfolio\\mcp-surface\\mcp-surface.png",
+  "ok": true,
+  "durationMs": 4796,
+  "checks": [
+    {
+      "gate": "validate",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 1,
+      "detail": null
+    },
+    {
+      "gate": "deliver",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 0,
+      "detail": null
+    },
+    {
+      "gate": "check",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 0,
+      "detail": null
+    },
+    {
+      "gate": "browser-check",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 0,
+      "detail": {
+        "nodes": 16,
+        "links": 17,
+        "regions": 3
+      }
+    },
+    {
+      "gate": "perceptual",
+      "status": "pass",
+      "errors": 0,
+      "warnings": 1,
+      "detail": {
+        "luminance": {
+          "min": 10,
+          "max": 238,
+          "mean": 18,
+          "sd": 17.2
+        },
+        "text": {
+          "hex": "e8f0ea",
+          "ratio": 16.42,
+          "minContrast": 4.5,
+          "ok": true,
+          "bgLum": 16
+        }
+      }
+    }
+  ],
+  "visualReview": "pixel-measured",
+  "claim": "automated checks passed; perceptual evidence is a pixel measurement, not a human review"
+}
