@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "One registry. Every bot.",
+    "subtitle": "1,074 tools · 1,633 workflows · 1,356 n8n exports · 270 curated skills over a 3,022 catalogue · 16 frameworks",
+    "output": "portfolio/mcp-surface/mcp-surface.html",
+    "theme": "dark",
+    "quality_profile": "showcase",
+    "direction": "lr",
+    "source": {
+      "repo": "IzzoSol/Shaddai-Beta",
+      "ref": "master",
+      "note": "shaddai-mcp/mcp-unified.js + backend/routes/headless-routes.js — live, measured 2026-10-21"
+    },
+    "legend": [
+      { "kind": "client", "label": "Caller" },
+      { "kind": "other", "label": "Absorbed" },
+      { "kind": "service", "label": "Registry" },
+      { "kind": "tool", "label": "Tools & flows" },
+      { "kind": "store", "label": "Portable asset" },
+      { "kind": "database", "label": "Grounding" },
+      { "kind": "external", "label": "Money rail" }
+    ]
+  },
+  "components": [
+    { "id": "mcp_clients", "label": "MCP clients", "sublabel": "Claude Code · OpenCode · Cursor · any MCP host", "kind": "client", "rank": 0, "order": 0 },
+    { "id": "rest_clients", "label": "Headless REST", "sublabel": "Grok · Muse · n8n · Telegram · curl · cron", "kind": "client", "rank": 0, "order": 1 },
+    { "id": "t_extracted", "label": "9 repos extracted", "sublabel": "every capability captured as an MCP tool", "kind": "other", "rank": 0, "order": 2 },
+
+    { "id": "registry", "label": "shaddai-mcp", "sublabel": "mcp-unified.js — one registry, 1,074 tools", "kind": "service", "rank": 1, "order": 0 },
+
+    { "id": "t_backend", "label": "554 backend tools", "sublabel": "agent-engine.js · market, research, security, social", "kind": "tool", "rank": 2, "order": 0 },
+    { "id": "t_creative", "label": "125 creative tools", "sublabel": "image, video, design, motion, 3D", "kind": "tool", "rank": 2, "order": 1 },
+    { "id": "t_skills", "label": "276 skill tools", "sublabel": "270 curated playbooks + 6 catalogue managers", "kind": "tool", "rank": 2, "order": 2 },
+    { "id": "t_knowledge", "label": "16 knowledge frameworks", "sublabel": "story · thinking · dreamers · creative", "kind": "tool", "rank": 2, "order": 3 },
+
+    { "id": "wf", "label": "1,633 workflows", "sublabel": "609 tool- · 554 combo- · 270 skill- · 74 uc- · 21 stacks · 114 pipelines", "kind": "tool", "rank": 3, "order": 0 },
+    { "id": "brain", "label": "RAG brain", "sublabel": "7 agent KBs · 91k chunks · cited answers", "kind": "database", "rank": 3, "order": 1 },
+    { "id": "catalog", "label": "3,022-skill catalogue", "sublabel": "search or recommend by task", "kind": "store", "rank": 3, "order": 2 },
+    { "id": "mastery", "label": "Mastery packs", "sublabel": "75% creator royalty", "kind": "external", "rank": 3, "order": 3 },
+
+    { "id": "n8n", "label": "1,356 n8n exports", "sublabel": "one JSON per tool — all 270 skills included", "kind": "store", "rank": 4, "order": 0 },
+    { "id": "x402", "label": "x402", "sublabel": "per-call USDC on Solana", "kind": "external", "rank": 4, "order": 1 },
+    { "id": "paybox", "label": "PayBox / ZEROX", "sublabel": "platform take 15%", "kind": "external", "rank": 4, "order": 2 },
+    { "id": "gems", "label": "Gem economy", "sublabel": "community credit", "kind": "other", "rank": 4, "order": 3 }
+  ],
+  "relationships": [
+    { "from": "mcp_clients", "to": "registry", "label": "JSON-RPC", "kind": "sync" },
+    { "from": "rest_clients", "to": "registry", "label": "HTTP /api/headless/*", "kind": "sync" },
+    { "from": "t_extracted", "to": "registry", "label": "absorbed as tools", "kind": "data" },
+    { "from": "registry", "to": "t_backend", "label": "registry", "kind": "data" },
+    { "from": "registry", "to": "t_creative", "kind": "data" },
+    { "from": "registry", "to": "t_skills", "kind": "data" },
+    { "from": "registry", "to": "t_knowledge", "kind": "data" },
+    { "from": "t_backend", "to": "wf", "label": "built from tools", "kind": "data" },
+    { "from": "t_skills", "to": "wf", "kind": "data" },
+    { "from": "t_knowledge", "to": "wf", "kind": "data" },
+    { "from": "t_backend", "to": "brain", "label": "rag_search / rag_ask", "kind": "data" },
+    { "from": "t_skills", "to": "catalog", "label": "3,022 skills", "kind": "data" },
+    { "from": "t_skills", "to": "mastery", "label": "75% royalty", "kind": "data" },
+    { "from": "wf", "to": "n8n", "label": "export", "kind": "data" },
+    { "from": "wf", "to": "x402", "label": "402 quote", "kind": "auth" },
+    { "from": "wf", "to": "paybox", "label": "settle", "kind": "auth" },
+    { "from": "wf", "to": "gems", "label": "credit", "kind": "optional" }
+  ],
+  "boundaries": [
+    { "id": "b_registry", "label": "shaddai-mcp — the one registry", "kind": "service", "contains": ["registry", "t_backend", "t_creative", "t_skills", "t_knowledge", "wf"] },
+    { "id": "b_assets", "label": "Portable assets", "kind": "store", "contains": ["n8n", "catalog", "brain"] },
+    { "id": "b_money", "label": "Charging rails", "kind": "external", "contains": ["x402", "paybox", "mastery", "gems"] }
+  ]
+}
